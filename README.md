@@ -12,6 +12,7 @@ Live values are ease to animate with the `.live` or `.seconds` static properites
 - `CGPoint` --> `LivePoint`
 - `CGSize` --> `LiveSize`
 - `CGRect` --> `LiveRect`
+- `UIColor` --> `LiveColor`
 
 ### Static properites:
 - `LiveFloat.live`
