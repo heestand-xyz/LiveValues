@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A296F0E232A70760089F106 /* LiveVec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A296F0D232A70750089F106 /* LiveVec.swift */; };
+		3A296F0F232A70760089F106 /* LiveVec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A296F0D232A70750089F106 /* LiveVec.swift */; };
 		3ACA68C4232A3544003DD309 /* Live.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACA68C2232A3544003DD309 /* Live.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ACA68D3232A3551003DD309 /* LiveBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CB232A3551003DD309 /* LiveBool.swift */; };
 		3ACA68D4232A3551003DD309 /* LiveInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CC232A3551003DD309 /* LiveInt.swift */; };
@@ -44,6 +46,7 @@
 		1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
 		2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.release.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		390544D84F98C1949B82223D /* Pods_Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A296F0D232A70750089F106 /* LiveVec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveVec.swift; sourceTree = "<group>"; };
 		3ACA68BF232A3544003DD309 /* Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACA68C2232A3544003DD309 /* Live.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live.h; sourceTree = "<group>"; };
 		3ACA68CB232A3551003DD309 /* LiveBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveBool.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 				3ACA68CD232A3551003DD309 /* LiveSize.swift */,
 				3ACA68D2232A3551003DD309 /* LiveRect.swift */,
 				3ACA68CF232A3551003DD309 /* LiveColor.swift */,
+				3A296F0D232A70750089F106 /* LiveVec.swift */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				3ACA68D6232A3551003DD309 /* LiveFloat.swift in Sources */,
 				3ACA68D3232A3551003DD309 /* LiveBool.swift in Sources */,
 				3ACA68E2232A368A003DD309 /* Live.swift in Sources */,
+				3A296F0E232A70760089F106 /* LiveVec.swift in Sources */,
 				3ACA68E0232A3643003DD309 /* Motion.swift in Sources */,
 				3ACA68DE232A3606003DD309 /* String.swift in Sources */,
 				3ACA68D7232A3551003DD309 /* LiveColor.swift in Sources */,
@@ -375,6 +380,7 @@
 				3ACA68F9232A3756003DD309 /* String.swift in Sources */,
 				3ACA68F4232A3756003DD309 /* LiveBool.swift in Sources */,
 				3ACA68F5232A3756003DD309 /* LivePoint.swift in Sources */,
+				3A296F0F232A70760089F106 /* LiveVec.swift in Sources */,
 				3ACA68F2232A3756003DD309 /* LiveFloat.swift in Sources */,
 				3ACA68F1232A3756003DD309 /* LiveValue.swift in Sources */,
 				3ACA6902232A392D003DD309 /* OSC.swift in Sources */,
