@@ -8,12 +8,64 @@
 
 /* Begin PBXBuildFile section */
 		3ACA68C4232A3544003DD309 /* Live.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACA68C2232A3544003DD309 /* Live.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACA68D3232A3551003DD309 /* LiveBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CB232A3551003DD309 /* LiveBool.swift */; };
+		3ACA68D4232A3551003DD309 /* LiveInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CC232A3551003DD309 /* LiveInt.swift */; };
+		3ACA68D5232A3551003DD309 /* LiveSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CD232A3551003DD309 /* LiveSize.swift */; };
+		3ACA68D6232A3551003DD309 /* LiveFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CE232A3551003DD309 /* LiveFloat.swift */; };
+		3ACA68D7232A3551003DD309 /* LiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CF232A3551003DD309 /* LiveColor.swift */; };
+		3ACA68D8232A3551003DD309 /* LiveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D0232A3551003DD309 /* LiveValue.swift */; };
+		3ACA68D9232A3551003DD309 /* LivePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D1232A3551003DD309 /* LivePoint.swift */; };
+		3ACA68DA232A3551003DD309 /* LiveRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D2232A3551003DD309 /* LiveRect.swift */; };
+		3ACA68DE232A3606003DD309 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
+		3ACA68E0232A3643003DD309 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DF232A3643003DD309 /* Motion.swift */; };
+		3ACA68E2232A368A003DD309 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* Live.swift */; };
+		3ACA68EC232A374A003DD309 /* Live_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACA68EA232A374A003DD309 /* Live_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ACA68F0232A3756003DD309 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* Live.swift */; };
+		3ACA68F1232A3756003DD309 /* LiveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D0232A3551003DD309 /* LiveValue.swift */; };
+		3ACA68F2232A3756003DD309 /* LiveFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CE232A3551003DD309 /* LiveFloat.swift */; };
+		3ACA68F3232A3756003DD309 /* LiveInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CC232A3551003DD309 /* LiveInt.swift */; };
+		3ACA68F4232A3756003DD309 /* LiveBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CB232A3551003DD309 /* LiveBool.swift */; };
+		3ACA68F5232A3756003DD309 /* LivePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D1232A3551003DD309 /* LivePoint.swift */; };
+		3ACA68F6232A3756003DD309 /* LiveSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CD232A3551003DD309 /* LiveSize.swift */; };
+		3ACA68F7232A3756003DD309 /* LiveRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D2232A3551003DD309 /* LiveRect.swift */; };
+		3ACA68F8232A3756003DD309 /* LiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CF232A3551003DD309 /* LiveColor.swift */; };
+		3ACA68F9232A3756003DD309 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
+		3ACA68FF232A392D003DD309 /* MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FC232A392D003DD309 /* MIDI.swift */; };
+		3ACA6900232A392D003DD309 /* MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FC232A392D003DD309 /* MIDI.swift */; };
+		3ACA6901232A392D003DD309 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FD232A392D003DD309 /* OSC.swift */; };
+		3ACA6902232A392D003DD309 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FD232A392D003DD309 /* OSC.swift */; };
+		3ACA6903232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
+		3ACA6904232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
+		99088FD163F989F70803FCB5 /* Pods_Live.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390544D84F98C1949B82223D /* Pods_Live.framework */; };
+		F5F2F790F874E72662051CB2 /* Pods_Live_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55C7486CBB532D0145813D /* Pods_Live_macOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
+		2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.release.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		390544D84F98C1949B82223D /* Pods_Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACA68BF232A3544003DD309 /* Live.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Live.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACA68C2232A3544003DD309 /* Live.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live.h; sourceTree = "<group>"; };
-		3ACA68C3232A3544003DD309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ACA68CB232A3551003DD309 /* LiveBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveBool.swift; sourceTree = "<group>"; };
+		3ACA68CC232A3551003DD309 /* LiveInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveInt.swift; sourceTree = "<group>"; };
+		3ACA68CD232A3551003DD309 /* LiveSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveSize.swift; sourceTree = "<group>"; };
+		3ACA68CE232A3551003DD309 /* LiveFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveFloat.swift; sourceTree = "<group>"; };
+		3ACA68CF232A3551003DD309 /* LiveColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveColor.swift; sourceTree = "<group>"; };
+		3ACA68D0232A3551003DD309 /* LiveValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveValue.swift; sourceTree = "<group>"; };
+		3ACA68D1232A3551003DD309 /* LivePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePoint.swift; sourceTree = "<group>"; };
+		3ACA68D2232A3551003DD309 /* LiveRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRect.swift; sourceTree = "<group>"; };
+		3ACA68DD232A3606003DD309 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3ACA68DF232A3643003DD309 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Motion.swift; path = ../Other/Motion.swift; sourceTree = "<group>"; };
+		3ACA68E1232A368A003DD309 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
+		3ACA68E8232A374A003DD309 /* Live_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Live_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ACA68EA232A374A003DD309 /* Live_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_macOS.h; sourceTree = "<group>"; };
+		3ACA68EB232A374A003DD309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ACA68FC232A392D003DD309 /* MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDI.swift; sourceTree = "<group>"; };
+		3ACA68FD232A392D003DD309 /* OSC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
+		3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIAssistant.swift; sourceTree = "<group>"; };
+		3D55C7486CBB532D0145813D /* Pods_Live_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
+		C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99088FD163F989F70803FCB5 /* Pods_Live.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ACA68E5232A374A003DD309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5F2F790F874E72662051CB2 /* Pods_Live_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A8DD077232A399B00AC98E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3ACA68EB232A374A003DD309 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		3ACA68B5232A3544003DD309 = {
 			isa = PBXGroup;
 			children = (
-				3ACA68C1232A3544003DD309 /* Live */,
+				3ACA68C1232A3544003DD309 /* Source */,
+				3A8DD077232A399B00AC98E5 /* Resources */,
 				3ACA68C0232A3544003DD309 /* Products */,
+				E6BC565259CB2CAB22E6548C /* Pods */,
+				A1B3390E8C20AF74DC5CB643 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,17 +111,76 @@
 			isa = PBXGroup;
 			children = (
 				3ACA68BF232A3544003DD309 /* Live.framework */,
+				3ACA68E8232A374A003DD309 /* Live_macOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3ACA68C1232A3544003DD309 /* Live */ = {
+		3ACA68C1232A3544003DD309 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				3ACA68C2232A3544003DD309 /* Live.h */,
-				3ACA68C3232A3544003DD309 /* Info.plist */,
+				3ACA68EA232A374A003DD309 /* Live_macOS.h */,
+				3ACA68E1232A368A003DD309 /* Live.swift */,
+				3ACA68CA232A3551003DD309 /* Live */,
+				3ACA68FB232A391B003DD309 /* Data */,
+				3ACA68DC232A35FC003DD309 /* Other */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3ACA68CA232A3551003DD309 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				3ACA68D0232A3551003DD309 /* LiveValue.swift */,
+				3ACA68CE232A3551003DD309 /* LiveFloat.swift */,
+				3ACA68CC232A3551003DD309 /* LiveInt.swift */,
+				3ACA68CB232A3551003DD309 /* LiveBool.swift */,
+				3ACA68D1232A3551003DD309 /* LivePoint.swift */,
+				3ACA68CD232A3551003DD309 /* LiveSize.swift */,
+				3ACA68D2232A3551003DD309 /* LiveRect.swift */,
+				3ACA68CF232A3551003DD309 /* LiveColor.swift */,
 			);
 			path = Live;
+			sourceTree = "<group>";
+		};
+		3ACA68DC232A35FC003DD309 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				3ACA68DD232A3606003DD309 /* String.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		3ACA68FB232A391B003DD309 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3ACA68FC232A392D003DD309 /* MIDI.swift */,
+				3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */,
+				3ACA68FD232A392D003DD309 /* OSC.swift */,
+				3ACA68DF232A3643003DD309 /* Motion.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A1B3390E8C20AF74DC5CB643 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				390544D84F98C1949B82223D /* Pods_Live.framework */,
+				3D55C7486CBB532D0145813D /* Pods_Live_macOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6BC565259CB2CAB22E6548C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */,
+				1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */,
+				C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */,
+				2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,6 +194,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3ACA68E3232A374A003DD309 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ACA68EC232A374A003DD309 /* Live_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -70,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ACA68C7232A3544003DD309 /* Build configuration list for PBXNativeTarget "Live" */;
 			buildPhases = (
+				E555BA67F2250A4E384A47EE /* [CP] Check Pods Manifest.lock */,
 				3ACA68BA232A3544003DD309 /* Headers */,
 				3ACA68BB232A3544003DD309 /* Sources */,
 				3ACA68BC232A3544003DD309 /* Frameworks */,
@@ -84,6 +224,25 @@
 			productReference = 3ACA68BF232A3544003DD309 /* Live.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3ACA68E7232A374A003DD309 /* Live-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ACA68ED232A374A003DD309 /* Build configuration list for PBXNativeTarget "Live-macOS" */;
+			buildPhases = (
+				655DABD72FBD8A42E3424E3B /* [CP] Check Pods Manifest.lock */,
+				3ACA68E3232A374A003DD309 /* Headers */,
+				3ACA68E4232A374A003DD309 /* Sources */,
+				3ACA68E5232A374A003DD309 /* Frameworks */,
+				3ACA68E6232A374A003DD309 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Live-macOS";
+			productName = "Live-macOS";
+			productReference = 3ACA68E8232A374A003DD309 /* Live_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +253,9 @@
 				ORGANIZATIONNAME = Hexagons;
 				TargetAttributes = {
 					3ACA68BE232A3544003DD309 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					3ACA68E7232A374A003DD309 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -112,6 +274,7 @@
 			projectRoot = "";
 			targets = (
 				3ACA68BE232A3544003DD309 /* Live */,
+				3ACA68E7232A374A003DD309 /* Live-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -124,13 +287,101 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3ACA68E6232A374A003DD309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		655DABD72FBD8A42E3424E3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Live-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E555BA67F2250A4E384A47EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Live-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3ACA68BB232A3544003DD309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACA68D9232A3551003DD309 /* LivePoint.swift in Sources */,
+				3ACA6903232A392D003DD309 /* MIDIAssistant.swift in Sources */,
+				3ACA68D6232A3551003DD309 /* LiveFloat.swift in Sources */,
+				3ACA68D3232A3551003DD309 /* LiveBool.swift in Sources */,
+				3ACA68E2232A368A003DD309 /* Live.swift in Sources */,
+				3ACA68E0232A3643003DD309 /* Motion.swift in Sources */,
+				3ACA68DE232A3606003DD309 /* String.swift in Sources */,
+				3ACA68D7232A3551003DD309 /* LiveColor.swift in Sources */,
+				3ACA68D4232A3551003DD309 /* LiveInt.swift in Sources */,
+				3ACA6901232A392D003DD309 /* OSC.swift in Sources */,
+				3ACA68FF232A392D003DD309 /* MIDI.swift in Sources */,
+				3ACA68D5232A3551003DD309 /* LiveSize.swift in Sources */,
+				3ACA68D8232A3551003DD309 /* LiveValue.swift in Sources */,
+				3ACA68DA232A3551003DD309 /* LiveRect.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ACA68E4232A374A003DD309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ACA68F0232A3756003DD309 /* Live.swift in Sources */,
+				3ACA6904232A392D003DD309 /* MIDIAssistant.swift in Sources */,
+				3ACA68F8232A3756003DD309 /* LiveColor.swift in Sources */,
+				3ACA68F9232A3756003DD309 /* String.swift in Sources */,
+				3ACA68F4232A3756003DD309 /* LiveBool.swift in Sources */,
+				3ACA68F5232A3756003DD309 /* LivePoint.swift in Sources */,
+				3ACA68F2232A3756003DD309 /* LiveFloat.swift in Sources */,
+				3ACA68F1232A3756003DD309 /* LiveValue.swift in Sources */,
+				3ACA6902232A392D003DD309 /* OSC.swift in Sources */,
+				3ACA6900232A392D003DD309 /* MIDI.swift in Sources */,
+				3ACA68F6232A3756003DD309 /* LiveSize.swift in Sources */,
+				3ACA68F3232A3756003DD309 /* LiveInt.swift in Sources */,
+				3ACA68F7232A3756003DD309 /* LiveRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +510,7 @@
 		};
 		3ACA68C8232A3544003DD309 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -266,8 +518,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Live/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -283,6 +536,7 @@
 		};
 		3ACA68C9232A3544003DD309 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -290,8 +544,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Live/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +557,60 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3ACA68EE232A374A003DD309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2QHTY6FMW2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "se.hexagons.Live-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3ACA68EF232A374A003DD309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2QHTY6FMW2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "se.hexagons.Live-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -322,6 +631,15 @@
 			buildConfigurations = (
 				3ACA68C8232A3544003DD309 /* Debug */,
 				3ACA68C9232A3544003DD309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ACA68ED232A374A003DD309 /* Build configuration list for PBXNativeTarget "Live-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ACA68EE232A374A003DD309 /* Debug */,
+				3ACA68EF232A374A003DD309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
