@@ -26,9 +26,9 @@ infix operator ><
 //infix operator +-+
 //prefix operator °
 
-class Live {
+public class Live {
     
-    static let main = Live()
+    public static let main = Live()
     
     // MARK:  Frame Loop
     

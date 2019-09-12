@@ -13,6 +13,7 @@ import UIKit
 #elseif os(macOS)
 import Cocoa
 #endif
+import SwiftUI
 
 //infix operator *%* { precedence 50 }
 //infix operator %*% { precedence 60 }
@@ -35,6 +36,19 @@ infix operator <=>: TernaryElse
 public extension Bool {
     init(_ liveBool: LiveBool) {
         self = liveBool.value
+    }
+}
+
+@available(iOS 13.0, *)
+extension LiveBool {
+    public var bond: Binding<Bool> {
+        var value: Bool = val
+        self.liveValue = { value }
+        return Binding<Bool>(get: {
+            self.val
+        }, set: { val in
+            value = val
+        })
     }
 }
 

@@ -9,6 +9,7 @@
 import Foundation
 import CoreGraphics
 import simd
+import SwiftUI
 
 public extension CGFloat {
     init(_ liveFloat: LiveFloat) {
@@ -37,6 +38,19 @@ public class MetalUniform {
     public init(name: String, value: LiveFloat = 0.0) {
         self.name = name
         self.value = value
+    }
+}
+
+@available(iOS 13.0, *)
+extension LiveFloat {
+    public var bond: Binding<CGFloat> {
+        var value: CGFloat = cg
+        self.liveValue = { value }
+        return Binding<CGFloat>(get: {
+            self.cg
+        }, set: { val in
+            value = val
+        })
     }
 }
 

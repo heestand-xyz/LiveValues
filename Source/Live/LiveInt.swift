@@ -8,10 +8,24 @@
 
 import Foundation
 import CoreGraphics
+import SwiftUI
 
 public extension Int {
     init(_ liveInt: LiveInt) {
         self = liveInt.value
+    }
+}
+
+@available(iOS 13.0, *)
+extension LiveInt {
+    public var bond: Binding<Int> {
+        var value: Int = val
+        self.liveValue = { value }
+        return Binding<Int>(get: {
+            self.val
+        }, set: { val in
+            value = val
+        })
     }
 }
 
