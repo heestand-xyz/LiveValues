@@ -65,10 +65,11 @@ public class LiveRect: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     // MARK: Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGRect)) {
-        x = LiveFloat({ return liveValue().minX })
-        y = LiveFloat({ return liveValue().minY })
-        w = LiveFloat({ return liveValue().width })
-        h = LiveFloat({ return liveValue().height })
+        let val = liveValue()
+        x = LiveFloat({ return val.minX })
+        y = LiveFloat({ return val.minY })
+        w = LiveFloat({ return val.width })
+        h = LiveFloat({ return val.height })
     }
     
     public init(x: LiveFloat, y: LiveFloat, w: LiveFloat, h: LiveFloat) {

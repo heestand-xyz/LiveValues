@@ -10,17 +10,17 @@ import Foundation
 import CoreGraphics
 import simd
 
-extension CGFloat {
+public extension CGFloat {
     init(_ liveFloat: LiveFloat) {
         self = liveFloat.value
     }
 }
-extension Float {
+public extension Float {
     init(_ liveFloat: LiveFloat) {
         self = Float(liveFloat.value)
     }
 }
-extension Double {
+public extension Double {
     init(_ liveFloat: LiveFloat) {
         self = Double(liveFloat.value)
     }

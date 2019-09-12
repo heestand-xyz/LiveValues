@@ -56,8 +56,9 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     // MARK: Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGSize)) {
-        w = LiveFloat({ return liveValue().width })
-        h = LiveFloat({ return liveValue().height })
+        let val = liveValue()
+        w = LiveFloat({ return val.width })
+        h = LiveFloat({ return val.height })
     }
     
     public init(w: LiveFloat, h: LiveFloat) {

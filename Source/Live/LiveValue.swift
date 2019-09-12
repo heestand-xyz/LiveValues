@@ -11,7 +11,8 @@ import Foundation
 public protocol LiveValue {
     
     var name: String? { get }
-    
+    var description: String { get }
+
     var uniformIsNew: Bool { get }
     
 }

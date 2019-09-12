@@ -96,8 +96,9 @@ public class LivePoint: LiveValue, CustomStringConvertible {
     // MARK: Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGPoint)) {
-        x = LiveFloat({ return liveValue().x })
-        y = LiveFloat({ return liveValue().y })
+        let val = liveValue()
+        x = LiveFloat({ return val.x })
+        y = LiveFloat({ return val.y })
     }
     
     public init(x: LiveFloat, y: LiveFloat) {

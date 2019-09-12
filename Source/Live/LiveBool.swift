@@ -32,7 +32,7 @@ precedencegroup TernaryElse {
 infix operator <?>: TernaryIf
 infix operator <=>: TernaryElse
 
-extension Bool {
+public extension Bool {
     init(_ liveBool: LiveBool) {
         self = liveBool.value
     }

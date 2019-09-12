@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-extension Int {
+public extension Int {
     init(_ liveInt: LiveInt) {
         self = liveInt.value
     }
