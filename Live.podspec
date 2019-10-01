@@ -71,6 +71,7 @@ Pod::Spec.new do |spec|
   #  When using multiple platforms
   spec.ios.deployment_target = "11.0"
   spec.osx.deployment_target = "10.13"
+  spec.tvos.deployment_target = "11.0"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
   
@@ -96,6 +97,11 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Source", "Source/**/*.swift"
 
   spec.osx.exclude_files = "Source/Data/Motion.swift"
+
+  spec.tvos.exclude_files = "Source/Data/Motion.swift"
+  spec.tvos.exclude_files = "Source/Data/OSC.swift"
+  spec.tvos.exclude_files = "Source/Data/MIDI.swift"
+  spec.tvos.exclude_files = "Source/Data/MIDIAssistant.swift"
 
   # spec.exclude_files = "Classes/Exclude"
 

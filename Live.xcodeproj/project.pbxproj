@@ -19,7 +19,6 @@
 		3ACA68D9232A3551003DD309 /* LivePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D1232A3551003DD309 /* LivePoint.swift */; };
 		3ACA68DA232A3551003DD309 /* LiveRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D2232A3551003DD309 /* LiveRect.swift */; };
 		3ACA68DE232A3606003DD309 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
-		3ACA68E0232A3643003DD309 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DF232A3643003DD309 /* Motion.swift */; };
 		3ACA68E2232A368A003DD309 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* Live.swift */; };
 		3ACA68EC232A374A003DD309 /* Live_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACA68EA232A374A003DD309 /* Live_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ACA68F0232A3756003DD309 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* Live.swift */; };
@@ -38,6 +37,19 @@
 		3ACA6902232A392D003DD309 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FD232A392D003DD309 /* OSC.swift */; };
 		3ACA6903232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
 		3ACA6904232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
+		7443E68A2343C3DD0084F947 /* Live_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7443E6882343C3DD0084F947 /* Live_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7443E68E2343C4220084F947 /* Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* Live.swift */; };
+		7443E68F2343C4270084F947 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
+		7443E6912343C5EF0084F947 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443E6902343C5EE0084F947 /* Motion.swift */; };
+		7443E6952343C6000084F947 /* LiveValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D0232A3551003DD309 /* LiveValue.swift */; };
+		7443E6962343C6000084F947 /* LiveFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CE232A3551003DD309 /* LiveFloat.swift */; };
+		7443E6972343C6000084F947 /* LiveInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CC232A3551003DD309 /* LiveInt.swift */; };
+		7443E6982343C6000084F947 /* LiveBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CB232A3551003DD309 /* LiveBool.swift */; };
+		7443E6992343C6000084F947 /* LivePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D1232A3551003DD309 /* LivePoint.swift */; };
+		7443E69A2343C6000084F947 /* LiveSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CD232A3551003DD309 /* LiveSize.swift */; };
+		7443E69B2343C6000084F947 /* LiveRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D2232A3551003DD309 /* LiveRect.swift */; };
+		7443E69C2343C6000084F947 /* LiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CF232A3551003DD309 /* LiveColor.swift */; };
+		7443E69D2343C6000084F947 /* LiveVec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A296F0D232A70750089F106 /* LiveVec.swift */; };
 		99088FD163F989F70803FCB5 /* Pods_Live.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390544D84F98C1949B82223D /* Pods_Live.framework */; };
 		F5F2F790F874E72662051CB2 /* Pods_Live_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D55C7486CBB532D0145813D /* Pods_Live_macOS.framework */; };
 /* End PBXBuildFile section */
@@ -58,7 +70,6 @@
 		3ACA68D1232A3551003DD309 /* LivePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePoint.swift; sourceTree = "<group>"; };
 		3ACA68D2232A3551003DD309 /* LiveRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRect.swift; sourceTree = "<group>"; };
 		3ACA68DD232A3606003DD309 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		3ACA68DF232A3643003DD309 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Motion.swift; path = ../Other/Motion.swift; sourceTree = "<group>"; };
 		3ACA68E1232A368A003DD309 /* Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live.swift; sourceTree = "<group>"; };
 		3ACA68E8232A374A003DD309 /* Live_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Live_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACA68EA232A374A003DD309 /* Live_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_macOS.h; sourceTree = "<group>"; };
@@ -67,6 +78,9 @@
 		3ACA68FD232A392D003DD309 /* OSC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
 		3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIAssistant.swift; sourceTree = "<group>"; };
 		3D55C7486CBB532D0145813D /* Pods_Live_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Live_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7443E6862343C3DD0084F947 /* Live_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Live_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7443E6882343C3DD0084F947 /* Live_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_tvOS.h; sourceTree = "<group>"; };
+		7443E6902343C5EE0084F947 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
 		A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
 		C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +99,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5F2F790F874E72662051CB2 /* Pods_Live_macOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7443E6832343C3DD0084F947 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +136,7 @@
 			children = (
 				3ACA68BF232A3544003DD309 /* Live.framework */,
 				3ACA68E8232A374A003DD309 /* Live_macOS.framework */,
+				7443E6862343C3DD0084F947 /* Live_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +146,7 @@
 			children = (
 				3ACA68C2232A3544003DD309 /* Live.h */,
 				3ACA68EA232A374A003DD309 /* Live_macOS.h */,
+				7443E6882343C3DD0084F947 /* Live_tvOS.h */,
 				3ACA68E1232A368A003DD309 /* Live.swift */,
 				3ACA68CA232A3551003DD309 /* Live */,
 				3ACA68FB232A391B003DD309 /* Data */,
@@ -162,7 +185,7 @@
 				3ACA68FC232A392D003DD309 /* MIDI.swift */,
 				3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */,
 				3ACA68FD232A392D003DD309 /* OSC.swift */,
-				3ACA68DF232A3643003DD309 /* Motion.swift */,
+				7443E6902343C5EE0084F947 /* Motion.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -203,6 +226,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ACA68EC232A374A003DD309 /* Live_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7443E6812343C3DD0084F947 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7443E68A2343C3DD0084F947 /* Live_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +278,24 @@
 			productReference = 3ACA68E8232A374A003DD309 /* Live_macOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		7443E6852343C3DD0084F947 /* Live-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7443E68D2343C3DD0084F947 /* Build configuration list for PBXNativeTarget "Live-tvOS" */;
+			buildPhases = (
+				7443E6812343C3DD0084F947 /* Headers */,
+				7443E6822343C3DD0084F947 /* Sources */,
+				7443E6832343C3DD0084F947 /* Frameworks */,
+				7443E6842343C3DD0084F947 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Live-tvOS";
+			productName = "Live-tvOS";
+			productReference = 7443E6862343C3DD0084F947 /* Live_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -260,6 +309,9 @@
 						CreatedOnToolsVersion = 11.0;
 					};
 					3ACA68E7232A374A003DD309 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					7443E6852343C3DD0084F947 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -279,6 +331,7 @@
 			targets = (
 				3ACA68BE232A3544003DD309 /* Live */,
 				3ACA68E7232A374A003DD309 /* Live-macOS */,
+				7443E6852343C3DD0084F947 /* Live-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -292,6 +345,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3ACA68E6232A374A003DD309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7443E6842343C3DD0084F947 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,7 +418,6 @@
 				3ACA68D3232A3551003DD309 /* LiveBool.swift in Sources */,
 				3ACA68E2232A368A003DD309 /* Live.swift in Sources */,
 				3A296F0E232A70760089F106 /* LiveVec.swift in Sources */,
-				3ACA68E0232A3643003DD309 /* Motion.swift in Sources */,
 				3ACA68DE232A3606003DD309 /* String.swift in Sources */,
 				3ACA68D7232A3551003DD309 /* LiveColor.swift in Sources */,
 				3ACA68D4232A3551003DD309 /* LiveInt.swift in Sources */,
@@ -366,6 +425,7 @@
 				3ACA68FF232A392D003DD309 /* MIDI.swift in Sources */,
 				3ACA68D5232A3551003DD309 /* LiveSize.swift in Sources */,
 				3ACA68D8232A3551003DD309 /* LiveValue.swift in Sources */,
+				7443E6912343C5EF0084F947 /* Motion.swift in Sources */,
 				3ACA68DA232A3551003DD309 /* LiveRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +448,24 @@
 				3ACA68F6232A3756003DD309 /* LiveSize.swift in Sources */,
 				3ACA68F3232A3756003DD309 /* LiveInt.swift in Sources */,
 				3ACA68F7232A3756003DD309 /* LiveRect.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7443E6822343C3DD0084F947 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7443E68F2343C4270084F947 /* String.swift in Sources */,
+				7443E68E2343C4220084F947 /* Live.swift in Sources */,
+				7443E6992343C6000084F947 /* LivePoint.swift in Sources */,
+				7443E6962343C6000084F947 /* LiveFloat.swift in Sources */,
+				7443E6972343C6000084F947 /* LiveInt.swift in Sources */,
+				7443E69D2343C6000084F947 /* LiveVec.swift in Sources */,
+				7443E69C2343C6000084F947 /* LiveColor.swift in Sources */,
+				7443E6982343C6000084F947 /* LiveBool.swift in Sources */,
+				7443E6952343C6000084F947 /* LiveValue.swift in Sources */,
+				7443E69A2343C6000084F947 /* LiveSize.swift in Sources */,
+				7443E69B2343C6000084F947 /* LiveRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +702,58 @@
 			};
 			name = Release;
 		};
+		7443E68B2343C3DD0084F947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2QHTY6FMW2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.tvos;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+			};
+			name = Debug;
+		};
+		7443E68C2343C3DD0084F947 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2QHTY6FMW2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.tvos;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,6 +780,15 @@
 			buildConfigurations = (
 				3ACA68EE232A374A003DD309 /* Debug */,
 				3ACA68EF232A374A003DD309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7443E68D2343C3DD0084F947 /* Build configuration list for PBXNativeTarget "Live-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7443E68B2343C3DD0084F947 /* Debug */,
+				7443E68C2343C3DD0084F947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

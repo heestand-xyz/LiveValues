@@ -42,6 +42,7 @@ public class MetalUniform {
 }
 
 @available(iOS 13.0, *)
+@available(OSX 10.15, *)
 extension LiveFloat {
     public var bond: Binding<CGFloat> {
         var value: CGFloat = cg
@@ -273,6 +274,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
 //
 //    #endif
     
+    #if !os(tvOS)
     public static var midiAny: LiveFloat {
         return LiveFloat({ () -> (CGFloat) in
             return MIDI.main.firstAny ?? 0.0
@@ -284,6 +286,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
             return OSC.main.firstAny ?? 0.0
         })
     }
+    #endif
     
     public init(_ liveValue: @escaping () -> (CGFloat)) {
         self.liveValue = liveValue
@@ -575,6 +578,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         return LiveFloat({ return CGFloat.random(in: range) })
     }
     
+    #if !os(tvOS)
     /// find addresses with `MIDI.main.log = true`
     public static func midi(_ address: String) -> LiveFloat {
         return LiveFloat({ return MIDI.main.list[address] ?? 0.0 })
@@ -584,6 +588,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     public static func osc(_ address: String) -> LiveFloat {
         return LiveFloat({ return OSC.main.list[address] ?? 0.0 })
     }
+    #endif
     
     public func log(_ message: String? = nil) -> LiveFloat {
         return LiveFloat({ () -> (CGFloat) in

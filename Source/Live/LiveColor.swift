@@ -8,17 +8,17 @@
 
 import AVFoundation
 
-#if os(iOS)
-import UIKit
-#elseif os(macOS)
+#if os(macOS)
 import AppKit
+#else
+import UIKit
 #endif
 import CoreGraphics
 
-#if os(iOS)
-public typealias _Color = UIColor
-#elseif os(macOS)
+#if os(macOS)
 public typealias _Color = NSColor
+#else
+public typealias _Color = UIColor
 #endif
 //public extension _Color {
 //    var liveColor: LiveColor {
@@ -198,39 +198,37 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     
     // MARK: MIDI
     
-    #if os(macOS)
-    
+    #if !os(tvOS)
     public static var midiAny: LiveColor {
         return LiveColor(lum: LiveFloat.midiAny)
     }
-    
     #endif
     
     // MARK: Properties
     
     var _color: _Color {
-        #if os(iOS)
-        return uiColor
-        #elseif os(macOS)
+        #if os(macOS)
         return nsColor
+        #else
+        return uiColor
         #endif
     }
-    #if os(iOS)
-    public var uiColor: UIColor {
-        switch Live.main.colorSpace {
-        case .sRGB:
-            return UIColor(red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
-        case .displayP3:
-            return UIColor(displayP3Red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
-        }
-    }
-    #elseif os(macOS)
+    #if os(macOS)
     public var nsColor: NSColor {
         switch Live.main.colorSpace {
         case .sRGB:
             return NSColor(red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
         case .displayP3:
             return NSColor(displayP3Red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
+        }
+    }
+    #else
+    public var uiColor: UIColor {
+        switch Live.main.colorSpace {
+        case .sRGB:
+            return UIColor(red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
+        case .displayP3:
+            return UIColor(displayP3Red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
         }
     }
     #endif
@@ -285,7 +283,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     
     // MARK: - UI
     
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     public init(_ uiColor: UIColor) {
         let ciColor = CIColor(color: uiColor)
         r = LiveFloat(ciColor.red)

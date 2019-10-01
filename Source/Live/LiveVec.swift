@@ -7,7 +7,6 @@
 //
 
 import CoreGraphics
-import Live
 import SceneKit
 
 public class LiveVec: LiveValue {

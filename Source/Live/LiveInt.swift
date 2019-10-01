@@ -17,6 +17,7 @@ public extension Int {
 }
 
 @available(iOS 13.0, *)
+@available(OSX 10.15, *)
 extension LiveInt {
     public var bond: Binding<Int> {
         var value: Int = val

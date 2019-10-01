@@ -6,10 +6,10 @@
 //  Copyright © 2019 Hexagons. All rights reserved.
 //
 
-#if os(iOS)
-import UIKit
-#elseif os(macOS)
+#if os(macOS)
 import AppKit
+#else
+import UIKit
 #endif
 
 //infix operator ++
@@ -32,10 +32,10 @@ public class Live {
     
     // MARK:  Frame Loop
     
-    #if os(iOS)
-    typealias _DisplayLink = CADisplayLink
-    #elseif os(macOS)
+    #if os(macOS)
     typealias _DisplayLink = CVDisplayLink
+    #else
+    typealias _DisplayLink = CADisplayLink
     #endif
     var displayLink: _DisplayLink?
     
@@ -52,10 +52,10 @@ public class Live {
     var _fps: Int = -1
     public var fps: Int { return min(_fps, fpsMax) }
     public var fpsMax: Int { if #available(iOS 10.3, *) {
-        #if os(iOS)
-        return UIScreen.main.maximumFramesPerSecond
-        #elseif os(macOS)
+        #if os(macOS)
         return 60
+        #else
+        return UIScreen.main.maximumFramesPerSecond
         #endif
     } else { return -1 } }
     
@@ -68,10 +68,7 @@ public class Live {
     
     init() {
         
-        #if os(iOS)
-        displayLink = CADisplayLink(target: self, selector: #selector(frameLoop))
-        displayLink!.add(to: RunLoop.main, forMode: .common)
-        #elseif os(macOS)
+        #if os(macOS)
         CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
         let displayLinkOutputCallback: CVDisplayLinkOutputCallback = { (displayLink: CVDisplayLink,
                                                                         inNow: UnsafePointer<CVTimeStamp>,
@@ -84,6 +81,9 @@ public class Live {
         }
         CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()))
         CVDisplayLinkStart(displayLink!)
+        #else
+        displayLink = CADisplayLink(target: self, selector: #selector(frameLoop))
+        displayLink!.add(to: RunLoop.main, forMode: .common)
         #endif
         
     }

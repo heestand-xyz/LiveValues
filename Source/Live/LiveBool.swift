@@ -40,6 +40,7 @@ public extension Bool {
 }
 
 @available(iOS 13.0, *)
+@available(OSX 10.15, *)
 extension LiveBool {
     public var bond: Binding<Bool> {
         var value: Bool = val
