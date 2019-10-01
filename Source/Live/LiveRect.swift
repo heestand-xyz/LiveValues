@@ -12,6 +12,8 @@ public class LiveRect: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     
     public var name: String?
     
+    public let type: Any.Type = CGRect.self
+    
     public var x: LiveFloat
     public var y: LiveFloat
     public var w: LiveFloat
@@ -62,7 +64,7 @@ public class LiveRect: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
         return CGRect(x: x.cg, y: y.cg, width: w.cg, height: h.cg)
     }
     
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGRect)) {
         let val = liveValue()
@@ -157,11 +159,6 @@ public class LiveRect: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     public static func fill(aspect: LiveFloat) -> LiveRect {
         return LiveRect(x: 0, y: 0, w: aspect, h: 1.0)
     }
-    
-    /// PixelKit
-//    public static func fill(res: PIX.Res) -> LiveRect {
-//        return LiveRect.fill(aspect: res.aspect)
-//    }
     
     // MARK: Equatable
     

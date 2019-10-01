@@ -12,6 +12,8 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     
     public var name: String?
     
+    public let type: Any.Type = CGSize.self
+    
     public var w: LiveFloat
     public var h: LiveFloat
     
@@ -53,7 +55,7 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
         return LiveSize(w: h, h: w)
     }
 
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGSize)) {
         let val = liveValue()
@@ -137,11 +139,6 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
     public static func fill(aspect: LiveFloat) -> LiveSize {
         return LiveSize(w: aspect, h: 1.0)
     }
-    
-    /// PixelKit
-//    public static func fill(res: PIX.Res) -> LiveSize {
-//        return LiveSize.fill(aspect: res.aspect)
-//    }
     
     // MARK: Equatable
     

@@ -26,7 +26,7 @@ public typealias _Color = UIColor
 //    }
 //}
 
-extension _Color {
+public extension _Color {
     convenience init(_ liveColor: LiveColor) {
         self.init(displayP3Red: CGFloat(liveColor.r), green: CGFloat(liveColor.g), blue: CGFloat(liveColor.b), alpha: CGFloat(liveColor.a))
     }
@@ -35,6 +35,8 @@ extension _Color {
 public class LiveColor: LiveValue, CustomStringConvertible {
     
     public  var name: String?
+    
+    public let type: Any.Type = _Color.self
     
     public var r: LiveFloat
     public var g: LiveFloat
@@ -117,10 +119,10 @@ public class LiveColor: LiveValue, CustomStringConvertible {
             case ._16, ._32: return .RGBA16
             }
         }
-        var os: OSType {
+        public var os: OSType {
             return kCVPixelFormatType_32BGRA
         }
-        var osARGB: OSType {
+        public var osARGB: OSType {
             return kCVPixelFormatType_32ARGB
         }
         public var max: Int {
@@ -157,7 +159,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         return LiveColor(r: LiveFloat(srgb.x), g: LiveFloat(srgb.y), b: LiveFloat(srgb.z), a: a)
     }
     
-    var colorCorrect: LiveColor {
+    public var colorCorrect: LiveColor {
         switch Live.main.colorSpace {
         case .sRGB:
             return self
@@ -177,25 +179,6 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         }
     }
     
-    // MARK: Touch
-    
-    /// PixelKit
-//    #if os(iOS)
-//    public static var touch: LiveColor {
-//        return LiveColor(lum: .touch)
-//    }
-//    #elseif os(macOS)
-//    public static var mouseLeft: LiveColor {
-//        return LiveBool.mouseLeft <?> .white <=> .black
-//    }
-//    public static var mouseRight: LiveColor {
-//        return LiveBool.mouseRight <?> .white <=> .black
-//    }
-//    public static var mouseInView: LiveColor {
-//        return LiveBool.mouseInView <?> .white <=> .black
-//    }
-//    #endif
-    
     // MARK: MIDI
     
     #if !os(tvOS)
@@ -206,7 +189,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     
     // MARK: Properties
     
-    var _color: _Color {
+    public var _color: _Color {
         #if os(macOS)
         return nsColor
         #else
@@ -255,7 +238,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     
     // MARK: - Life Cycle
 
-    // MARK: - Future
+    // MARK: Future
     
     public init(_ liveValue: @escaping () -> (_Color)) {
         let liveColor = LiveColor(liveValue())
@@ -265,7 +248,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         a = liveColor.a
     }
     
-    // MARK: - RGB
+    // MARK: RGB
     
     public init(r: LiveFloat, g: LiveFloat, b: LiveFloat, a: LiveFloat = 1) {
         self.r = r
@@ -281,7 +264,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         self.a = LiveFloat(CGFloat(a255) / 255)
     }
     
-    // MARK: - UI
+    // MARK: UI
     
     #if os(iOS) || os(tvOS)
     public init(_ uiColor: UIColor) {
@@ -293,7 +276,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     }
     #endif
 
-    // MARK: - NS
+    // MARK: NS
     
     #if os(macOS)
     public init(_ nsColor: NSColor) {
@@ -306,7 +289,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     }
     #endif
     
-    // MARK: - Grayscale
+    // MARK: Grayscale
     
     public init(lum: LiveFloat, a: LiveFloat = 1.0) {
 //        self.space = Live.main.colorSpace
@@ -314,6 +297,32 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         self.g = lum
         self.b = lum
         self.a = a
+    }
+    
+    // MARK: Pixel
+    
+    public init(_ pixel: [CGFloat]) {
+        guard pixel.count == 4 else {
+            print("Error: Color: Bad Channel Count: \(pixel.count)")
+            r = 0
+            g = 0
+            b = 0
+            a = 1
+            return
+        }
+        switch Live.main.bits {
+        case ._8, ._10:
+            // FIXME: BGRA Temp Fix
+            b = LiveFloat(pixel[0])
+            g = LiveFloat(pixel[1])
+            r = LiveFloat(pixel[2])
+            a = LiveFloat(pixel[3])
+        case ._16, ._32:
+            r = LiveFloat(pixel[0])
+            g = LiveFloat(pixel[1])
+            b = LiveFloat(pixel[2])
+            a = LiveFloat(pixel[3])
+        }
     }
     
     // MARK: - Hue Saturaton Value
@@ -453,32 +462,6 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         self.g = LiveFloat(CGFloat((hexInt & 0xff00) >> 8) / 255.0)
         self.b = LiveFloat(CGFloat((hexInt & 0xff) >> 0) / 255.0)
         self.a = LiveFloat(a)
-    }
-    
-    // MARK: - Pixel
-    
-    init(_ pixel: [CGFloat]) {
-        guard pixel.count == 4 else {
-            print("Error: Color: Bad Channel Count: \(pixel.count)")
-            r = 0
-            g = 0
-            b = 0
-            a = 1
-            return
-        }
-        switch Live.main.bits {
-        case ._8, ._10:
-            // FIXME: BGRA Temp Fix
-            b = LiveFloat(pixel[0])
-            g = LiveFloat(pixel[1])
-            r = LiveFloat(pixel[2])
-            a = LiveFloat(pixel[3])
-        case ._16, ._32:
-            r = LiveFloat(pixel[0])
-            g = LiveFloat(pixel[1])
-            b = LiveFloat(pixel[2])
-            a = LiveFloat(pixel[3])
-        }
     }
     
     // MARK: - Pure

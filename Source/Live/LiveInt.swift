@@ -18,6 +18,7 @@ public extension Int {
 
 @available(iOS 13.0, *)
 @available(OSX 10.15, *)
+@available(tvOS 13.0, *)
 extension LiveInt {
     public var bond: Binding<Int> {
         var value: Int = val
@@ -34,6 +35,8 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
     
     public var name: String?
     
+    public let type: Any.Type = Int.self
+    
     public var description: String {
         return "live\(name != nil ? "[\(name!)]" : "")(\(value))"
     }
@@ -44,9 +47,12 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
         return Swift.max(Swift.min(liveValue(), max), min)
     }
     
-    var limit: Bool = false
-    var min: Int = 0
-    var max: Int = 1
+    public var limit: Bool = false
+    public var min: Int = 0
+    public var max: Int = 1
+    public var range: Range<Int> {
+        min..<max
+    }
     
     public var uniform: Int {
         uniformCache = value
@@ -60,15 +66,6 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
     public var val: Int {
         return value
     }
-    
-    /// PixelKit
-//    #if os(iOS)
-//    public static var touch: LiveInt {
-//        return LiveInt({ () -> (Int) in
-//            return Bool(LiveBool.touch) ? 1 : 0
-//        })
-//    }
-//    #endif
     
     #if os(macOS)
     
@@ -86,12 +83,12 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
 //    public var hour: LiveInt!
 //    public var minute: LiveInt!
 //    public var second: LiveInt!
-    /// PixelKit
-//    public static var seconds: LiveInt {
-//        return LiveInt({ () -> (Int) in
-//            return Int(Live.main.seconds)
-//        })
-//    }
+    
+    public static var seconds: LiveInt {
+        return LiveInt({ () -> (Int) in
+            return Int(Live.main.seconds)
+        })
+    }
     public static var secondsSince1970: LiveInt {
         return LiveInt({ () -> (Int) in
             return Int(Date().timeIntervalSince1970)
@@ -106,6 +103,7 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
         })
     }
     
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (Int)) {
         self.liveValue = liveValue
@@ -119,12 +117,13 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
         liveValue = { return Int(value) }
     }
     
-    public init(_ value: Int, min: Int? = nil, max: Int? = nil) {
+    public init(_ value: Int, min: Int? = nil, max: Int? = nil, limit: Bool = false) {
         liveValue = { return value }
-        limit = min != nil || max != nil
         self.min = min ?? 0
         self.max = max ?? 1
+        self.limit = limit
     }
+    
     required public init(integerLiteral value: IntegerLiteralType) {
         liveValue = { return Int(value) }
     }

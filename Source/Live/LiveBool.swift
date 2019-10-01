@@ -41,6 +41,7 @@ public extension Bool {
 
 @available(iOS 13.0, *)
 @available(OSX 10.15, *)
+@available(tvOS 13.0, *)
 extension LiveBool {
     public var bond: Binding<Bool> {
         var value: Bool = val
@@ -56,6 +57,8 @@ extension LiveBool {
 public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConvertible {
     
     public var name: String?
+    
+    public let type: Any.Type = Bool.self
     
     public var description: String {
         return "live\(name != nil ? "[\(name!)]" : "")(\(Bool(self)))"
@@ -78,55 +81,6 @@ public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConve
     public var val: Bool {
         return value
     }
-
-    /// PixelKit
-//    #if os(iOS)
-//    public static var touch: LiveBool {
-//        return LiveBool({ () -> (Bool) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                if pix.view.liveTouchView.touch {
-//                    return true
-//                }
-//            }
-//            return false
-//        })
-//    }
-//    #elseif os(macOS)
-//    public static var mouseLeft: LiveBool {
-//        return LiveBool({ () -> (Bool) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                if pix.view.liveMouseView.mouseLeft {
-//                    return true
-//                }
-//            }
-//            return false
-//        })
-//    }
-//    public static var mouseRight: LiveBool {
-//        return LiveBool({ () -> (Bool) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                if pix.view.liveMouseView.mouseRight {
-//                    return true
-//                }
-//            }
-//            return false
-//        })
-//    }
-//    public static var mouseInView: LiveBool {
-//        return LiveBool({ () -> (Bool) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                if pix.view.liveMouseView.mouseInView {
-//                    return true
-//                }
-//            }
-//            return false
-//        })
-//    }
-//    #endif
     
     #if os(macOS)
     
@@ -135,6 +89,8 @@ public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConve
     }
     
     #endif
+    
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (Bool)) {
         self.liveValue = liveValue

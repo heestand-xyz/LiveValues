@@ -98,10 +98,10 @@ Pod::Spec.new do |spec|
 
   spec.osx.exclude_files = "Source/Data/Motion.swift"
 
-  spec.tvos.exclude_files = "Source/Data/Motion.swift"
-  spec.tvos.exclude_files = "Source/Data/OSC.swift"
-  spec.tvos.exclude_files = "Source/Data/MIDI.swift"
-  spec.tvos.exclude_files = "Source/Data/MIDIAssistant.swift"
+  spec.tvos.exclude_files = "Source/Data/Motion.swift",
+                            "Source/Data/OSC.swift",
+                            "Source/Data/MIDI.swift",
+                            "Source/Data/MIDIAssistant.swift"
 
   # spec.exclude_files = "Classes/Exclude"
 
@@ -146,6 +146,7 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  spec.dependency 'OSCKit'
+  spec.ios.dependency 'OSCKit'
+  spec.osx.dependency 'OSCKit'
 
 end

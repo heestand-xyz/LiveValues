@@ -32,17 +32,9 @@ public extension Double {
 //    }
 //}
 
-public class MetalUniform {
-    public var name: String
-    public var value: LiveFloat
-    public init(name: String, value: LiveFloat = 0.0) {
-        self.name = name
-        self.value = value
-    }
-}
-
 @available(iOS 13.0, *)
 @available(OSX 10.15, *)
+@available(tvOS 13.0, *)
 extension LiveFloat {
     public var bond: Binding<CGFloat> {
         var value: CGFloat = cg
@@ -59,6 +51,8 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     
     public var name: String?
     
+    public let type: Any.Type = CGFloat.self
+    
     public var description: String {
         let _value: CGFloat = round(CGFloat(self) * 1_000) / 1_000
         return "live\(name != nil ? "[\(name!)]" : "")(\("\(_value)".zfill(3)))"
@@ -70,9 +64,12 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         return Swift.max(Swift.min(liveValue(), max), min)
     }
     
-    var limit: Bool = false
-    var min: CGFloat = 0.0
-    var max: CGFloat = 1.0
+    public var limit: Bool = false
+    public var min: CGFloat = 0.0
+    public var max: CGFloat = 1.0
+    public var range: ClosedRange<CGFloat> {
+        min...max
+    }
     
     public var cg: CGFloat {
         return value
@@ -94,12 +91,12 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     
     public static var pi: LiveFloat { return LiveFloat(CGFloat.pi) }
     
-    //    public var year: LiveFloat!
-    //    public var month: LiveFloat!
-    //    public var day: LiveFloat!
-    //    public var hour: LiveFloat!
-    //    public var minute: LiveFloat!
-    //    public var second: LiveFloat!
+//    public var year: LiveFloat!
+//    public var month: LiveFloat!
+//    public var day: LiveFloat!
+//    public var hour: LiveFloat!
+//    public var minute: LiveFloat!
+//    public var second: LiveFloat!
     public static var seconds: LiveFloat {
         return LiveFloat({ () -> (CGFloat) in
             return Live.main.seconds
@@ -111,7 +108,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         })
     }
     
-    var isFrozen: Bool = false
+    public var isFrozen: Bool = false
     public static var live: LiveFloat {
         var value: CGFloat = 0.0
         var lastFrame: Int = -1
@@ -127,22 +124,6 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
             return value
         })
     }
-    /// PixelKit
-//    public static var liveFinal: LiveFloat {
-//        var value: CGFloat = 0.0
-//        var lastFrame: Int = -1
-//        return LiveFloat({ () -> (CGFloat) in
-//            guard lastFrame != Live.main.finalFrame else {
-//                lastFrame = Live.main.finalFrame
-//                return value
-//            }
-//            if !self.live.isFrozen {
-//                value += 1.0 / CGFloat(Live.main.finalFps ?? Live.main.fpsMax)
-//            }
-//            lastFrame = Live.main.finalFrame
-//            return value
-//        })
-//    }
     
     #if os(iOS)
     public static var motionGyroX: LiveFloat {
@@ -227,53 +208,6 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     }
     #endif
     
-    /// PixelKit
-//    #if os(iOS)
-//
-//    public static var touch: LiveFloat {
-//        return LiveFloat({ () -> (CGFloat) in
-//            return Bool(LiveBool.touch) ? 1.0 : 0.0
-//        })
-//    }
-//
-//    public static var touchX: LiveFloat {
-//        return LivePoint.touchXY.x
-//    }
-//
-//    public static var touchY: LiveFloat {
-//        return LivePoint.touchXY.y
-//    }
-//
-//    public static var touchForce: LiveFloat {
-//        return LiveFloat({ () -> (CGFloat) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                return pix.view.liveTouchView.force
-//            }
-//            return 0.0
-//        })
-//    }
-//
-//    #elseif os(macOS)
-//
-//    public static var mouseLeft: LiveFloat {
-//        return LiveBool.mouseLeft <?> 1.0 <=> 0.0
-//    }
-//    public static var mouseRight: LiveFloat {
-//        return LiveBool.mouseRight <?> 1.0 <=> 0.0
-//    }
-//    public static var mouseInView: LiveFloat {
-//        return LiveBool.mouseInView <?> 1.0 <=> 0.0
-//    }
-//    public static var mouseX: LiveFloat {
-//        return LivePoint.mouseXY.x
-//    }
-//    public static var mouseY: LiveFloat {
-//        return LivePoint.mouseXY.y
-//    }
-//
-//    #endif
-    
     #if !os(tvOS)
     public static var midiAny: LiveFloat {
         return LiveFloat({ () -> (CGFloat) in
@@ -288,6 +222,8 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     }
     #endif
     
+    // MARK: - Life Cycle
+    
     public init(_ liveValue: @escaping () -> (CGFloat)) {
         self.liveValue = liveValue
     }
@@ -296,11 +232,11 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         liveValue = { return CGFloat(Int(liveInt)) }
     }
     
-    public init(_ value: CGFloat, min: CGFloat? = nil, max: CGFloat? = nil) {
+    public init(_ value: CGFloat, min: CGFloat? = nil, max: CGFloat? = nil, limit: Bool = false) {
         liveValue = { return value }
-        limit = min != nil || max != nil
         self.min = min ?? 0.0
         self.max = max ?? 1.0
+        self.limit = limit
     }
     public init(_ value: Float) {
         liveValue = { return CGFloat(value) }

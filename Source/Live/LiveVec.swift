@@ -13,6 +13,8 @@ public class LiveVec: LiveValue {
     
     public var name: String?
     
+    public let type: Any.Type = SCNVector3.self
+    
     public var x: LiveFloat
     public var y: LiveFloat
     public var z: LiveFloat
@@ -44,6 +46,8 @@ public class LiveVec: LiveValue {
         case y
         case z
     }
+    
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (SCNVector3)) {
         let val = liveValue()

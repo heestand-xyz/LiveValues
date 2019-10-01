@@ -15,6 +15,8 @@ public class LivePoint: LiveValue, CustomStringConvertible {
     
     public var name: String?
     
+    public let type: Any.Type = CGPoint.self
+    
     public var x: LiveFloat
     public var y: LiveFloat
     
@@ -47,53 +49,7 @@ public class LivePoint: LiveValue, CustomStringConvertible {
     
     public static var zero: LivePoint { return LivePoint(x: 0.0, y: 0.0) }
     
-    /// PixelKit
-//    #if os(iOS)
-//    public static var touchXY: LivePoint {
-//        return LivePoint({ () -> (CGPoint) in
-//            for pix in Live.main.linkedPixs {
-//                guard pix.view.superview != nil else { continue }
-//                return pix.view.liveTouchView.touchPointMain
-//            }
-//            return .zero
-//        })
-//    }
-////    public static var touchPoints: [LivePoint] {
-////        var points: [LivePoint] = []
-////        for i in 0..<10 {
-////            let point = LivePoint({ () -> (CGPoint) in
-////                for pix in Live.main.linkedPixs {
-////                    guard pix.view.superview != nil else { continue }
-////                    let touchPoints = pix.view.liveTouchView.touchPoints
-////                    guard touchPoints.count > i else { continue }
-////                    return touchPoints[i]
-////                }
-////                return .zero
-////            })
-////            points.append(point)
-////        }
-////        return points
-////    }
-//    #elseif os(macOS)
-//    public static var mouseXYAbs: LivePoint {
-//        return LivePoint({ () -> (CGPoint) in
-//            return NSEvent.mouseLocation
-//        })
-//    }
-//    public static var mouseXY: LivePoint {
-//        return LivePoint({ () -> (CGPoint) in
-//            for linkedPix in Live.main.linkedPixs {
-//                guard linkedPix.view.superview != nil else { continue }
-//                if let mousePoint = linkedPix.view.liveMouseView.mousePoint {
-//                    return mousePoint
-//                }
-//            }
-//            return .zero
-//        })
-//    }
-//    #endif
-    
-    // MARK: Life Cycle
+    // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGPoint)) {
         let val = liveValue()
@@ -166,22 +122,6 @@ public class LivePoint: LiveValue, CustomStringConvertible {
         return LivePoint(x: LiveFloat.noise(range: xRange, seconds: seconds),
                          y: LiveFloat.noise(range: yRange, seconds: seconds))
     }
-    
-    // MARK: Helpers
-    
-    /// PixelKit
-//    public static func topLeft(res: PIX.Res) -> LivePoint {
-//        return LivePoint(x: -res.aspect / 2.0, y: 0.5)
-//    }
-//    public static func topRight(res: PIX.Res) -> LivePoint {
-//        return LivePoint(x: res.aspect / 2.0, y: 0.5)
-//    }
-//    public static func bottomLeft(res: PIX.Res) -> LivePoint {
-//        return LivePoint(x: -res.aspect / 2.0, y: -0.5)
-//    }
-//    public static func bottomRight(res: PIX.Res) -> LivePoint {
-//        return LivePoint(x: res.aspect / 2.0, y: -0.5)
-//    }
     
     // MARK: Equatable
     
