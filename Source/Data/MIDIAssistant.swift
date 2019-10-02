@@ -84,8 +84,8 @@ class MIDIAssistant {
         var inPort: MIDIPortRef = 0
         var src: MIDIEndpointRef = MIDIGetSource(device_index)
         
-        MIDIClientCreate("MidiPIXNodesClient" as CFString, nil, nil, &midiClient)
-        MIDIInputPortCreate(midiClient, "MidiPIXNodes_InPort" as CFString, myMIDIReadProc, nil, &inPort)
+        MIDIClientCreate("MidiNODENodesClient" as CFString, nil, nil, &midiClient)
+        MIDIInputPortCreate(midiClient, "MidiNODENodes_InPort" as CFString, myMIDIReadProc, nil, &inPort)
         
         MIDIPortConnectSource(inPort, src, &src)
         

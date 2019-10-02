@@ -1,5 +1,5 @@
 //
-//  PIXColor.swift
+//  NODEColor.swift
 //  Live
 //
 //  Created by Hexagons on 2018-08-08.

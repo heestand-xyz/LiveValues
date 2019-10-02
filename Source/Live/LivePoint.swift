@@ -84,7 +84,7 @@ public class LivePoint: LiveValue, CustomStringConvertible {
         y = LiveFloat(vector.dy)
     }
     
-//    public init(xRel: LiveFloat, yRel: LiveFloat, res: PIX.Res) {
+//    public init(xRel: LiveFloat, yRel: LiveFloat, res: NODE.Res) {
 //        x = LiveFloat({ return CGFloat(xRel) / res.width })
 //        y = LiveFloat({ return CGFloat(yRel) / res.width })
 //    }

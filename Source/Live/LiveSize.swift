@@ -99,7 +99,7 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
         h = LiveFloat(CGFloat(value))
     }
     
-//    public init(wRel: LiveFloat, hRel: LiveFloat, res: PIX.Res) {
+//    public init(wRel: LiveFloat, hRel: LiveFloat, res: NODE.Res) {
 //        w = LiveFloat({ return CGFloat(wRel) / res.width })
 //        h = LiveFloat({ return CGFloat(hRel) / res.width })
 //    }
