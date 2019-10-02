@@ -1,4 +1,9 @@
-# Live
+# LiveValues
+
+[![License](https://img.shields.io/cocoapods/l/LiveValues.svg)](https://github.com/hexagons/LiveValues/blob/master/LICENSE)
+[![Cocoapods](https://img.shields.io/cocoapods/v/LiveValues.svg)](http://cocoapods.org/pods/LiveValues)
+[![Platform](https://img.shields.io/cocoapods/p/LiveValues.svg)](http://cocoapods.org/pods/LiveValues)
+<img src="https://img.shields.io/badge/in-swift5.0-orange.svg">
 
 ## Values
 
