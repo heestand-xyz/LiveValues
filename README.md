@@ -10,6 +10,19 @@
 Live values are automatically updated when they have changin values.
 Live values are ease to animate with the `.live` or `.seconds` static properites.
 
+
+## Install
+
+Install with [CocoaPods](https://cocoapods.org).
+
+```ruby
+pod 'LiveValues'
+```
+
+```swift
+import LiveValues
+```
+
 ### Types:
 - `CGFloat` --> `LiveFloat`
 - `Int` --> `LiveInt`
