@@ -99,7 +99,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
 //    public var second: LiveFloat!
     public static var seconds: LiveFloat {
         return LiveFloat({ () -> (CGFloat) in
-            return Live.main.seconds
+            return LiveValues.main.seconds
         })
     }
     public static var secondsSince1970: LiveFloat {
@@ -113,14 +113,14 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         var value: CGFloat = 0.0
         var lastFrame: Int = -1
         return LiveFloat({ () -> (CGFloat) in
-            guard lastFrame != Live.main.frame else {
-                lastFrame = Live.main.frame
+            guard lastFrame != LiveValues.main.frame else {
+                lastFrame = LiveValues.main.frame
                 return value
             }
             if !self.live.isFrozen {
-                value += 1.0 / CGFloat(Live.main.fps)
+                value += 1.0 / CGFloat(LiveValues.main.fps)
             }
-            lastFrame = Live.main.frame
+            lastFrame = LiveValues.main.frame
             return value
         })
     }
@@ -405,7 +405,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     /// filter over frames.
     public func filter(frames: LiveInt, bypassLower: Bool = false, bypassHigher: Bool = false) -> LiveFloat {
         var cache: [CGFloat] = []
-        Live.main.listenToFrames(callback: {
+        LiveValues.main.listenToFrames(callback: {
             cache.append(CGFloat(self))
             while cache.count > Int(frames) {
                 cache.remove(at: 0)

@@ -26,9 +26,9 @@ infix operator ><
 //infix operator +-+
 //prefix operator °
 
-public class Live {
+public class LiveValues {
     
-    public static let main = Live()
+    public static let main = LiveValues()
     
     // MARK:  Frame Loop
     
@@ -76,7 +76,7 @@ public class Live {
                                                                         flagsIn: CVOptionFlags,
                                                                         flagsOut: UnsafeMutablePointer<CVOptionFlags>,
                                                                         displayLinkContext: UnsafeMutableRawPointer?) -> CVReturn in
-            Live.main.frameLoop()
+            LiveValues.main.frameLoop()
             return kCVReturnSuccess
         }
         CVDisplayLinkSetOutputCallback(displayLink!, displayLinkOutputCallback, UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()))

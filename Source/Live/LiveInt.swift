@@ -86,7 +86,7 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
     
     public static var seconds: LiveInt {
         return LiveInt({ () -> (Int) in
-            return Int(Live.main.seconds)
+            return Int(LiveValues.main.seconds)
         })
     }
     public static var secondsSince1970: LiveInt {

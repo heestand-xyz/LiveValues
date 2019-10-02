@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "Live"
+  spec.name         = "LiveValues"
   spec.version      = "1.0.0"
   spec.summary      = "Live Values for iOS & macOS"
 
@@ -25,8 +25,8 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  					a collection of live value types for realtime.
-                   DESC
+  					          a collection of live value types for realtime.
+                      DESC
 
   spec.homepage     = "http://hexagons.se"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -83,7 +83,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/hexagons/live.git", :branch => "master", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/hexagons/LiveValues.git", :branch => "master", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

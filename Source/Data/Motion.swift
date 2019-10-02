@@ -36,9 +36,9 @@ class Motion {
         motionManager = CMMotionManager()
         
         if motionManager.isGyroAvailable {
-            motionManager.gyroUpdateInterval = 1.0 / TimeInterval(Live.main.fpsMax)
+            motionManager.gyroUpdateInterval = 1.0 / TimeInterval(LiveValues.main.fpsMax)
             motionManager.startGyroUpdates()
-            Live.main.listenToFrames {
+            LiveValues.main.listenToFrames {
                 if let data = self.motionManager.gyroData {
                     self.gyroX = CGFloat(data.rotationRate.x)
                     self.gyroY = CGFloat(data.rotationRate.y)
@@ -48,9 +48,9 @@ class Motion {
         }
         
         if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 1.0 / TimeInterval(Live.main.fpsMax)
+            motionManager.accelerometerUpdateInterval = 1.0 / TimeInterval(LiveValues.main.fpsMax)
             motionManager.startAccelerometerUpdates()
-            Live.main.listenToFrames {
+            LiveValues.main.listenToFrames {
                 if let data = self.motionManager.accelerometerData {
                     self.accelerationX = CGFloat(data.acceleration.x)
                     self.accelerationY = CGFloat(data.acceleration.y)
@@ -60,9 +60,9 @@ class Motion {
         }
         
         if motionManager.isMagnetometerAvailable {
-            motionManager.magnetometerUpdateInterval = 1.0 / TimeInterval(Live.main.fpsMax)
+            motionManager.magnetometerUpdateInterval = 1.0 / TimeInterval(LiveValues.main.fpsMax)
             motionManager.startMagnetometerUpdates()
-            Live.main.listenToFrames {
+            LiveValues.main.listenToFrames {
                 if let data = self.motionManager.magnetometerData {
                     self.magneticFieldX = CGFloat(data.magneticField.x)
                     self.magneticFieldY = CGFloat(data.magneticField.y)
@@ -72,9 +72,9 @@ class Motion {
         }
         
         if motionManager.isDeviceMotionAvailable {
-            motionManager.deviceMotionUpdateInterval = 1.0 / TimeInterval(Live.main.fpsMax)
+            motionManager.deviceMotionUpdateInterval = 1.0 / TimeInterval(LiveValues.main.fpsMax)
             motionManager.startDeviceMotionUpdates()
-            Live.main.listenToFrames {
+            LiveValues.main.listenToFrames {
                 if let data = self.motionManager.deviceMotion {
                     self.deviceAttitudeX = CGFloat(data.attitude.quaternion.x)
                     self.deviceAttitudeY = CGFloat(data.attitude.quaternion.y)

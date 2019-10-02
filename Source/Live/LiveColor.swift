@@ -160,7 +160,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     }
     
     public var colorCorrect: LiveColor {
-        switch Live.main.colorSpace {
+        switch LiveValues.main.colorSpace {
         case .sRGB:
             return self
         case .displayP3:
@@ -198,7 +198,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     }
     #if os(macOS)
     public var nsColor: NSColor {
-        switch Live.main.colorSpace {
+        switch LiveValues.main.colorSpace {
         case .sRGB:
             return NSColor(red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
         case .displayP3:
@@ -207,7 +207,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     }
     #else
     public var uiColor: UIColor {
-        switch Live.main.colorSpace {
+        switch LiveValues.main.colorSpace {
         case .sRGB:
             return UIColor(red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
         case .displayP3:
@@ -217,10 +217,10 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     #endif
     
     public var ciColor: CIColor {
-        return CIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a), colorSpace: Live.main.colorSpace.cg) ?? CIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        return CIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a), colorSpace: LiveValues.main.colorSpace.cg) ?? CIColor(red: 0, green: 0, blue: 0, alpha: 0)
     }
     public var cgColor: CGColor {
-        return CGColor(colorSpace: Live.main.colorSpace.cg, components: list) ?? _Color.clear.cgColor
+        return CGColor(colorSpace: LiveValues.main.colorSpace.cg, components: list) ?? _Color.clear.cgColor
     }
     
     public var list: [CGFloat] {
@@ -292,7 +292,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     // MARK: Grayscale
     
     public init(lum: LiveFloat, a: LiveFloat = 1.0) {
-//        self.space = Live.main.colorSpace
+//        self.space = LiveValues.main.colorSpace
         self.r = lum
         self.g = lum
         self.b = lum
@@ -310,7 +310,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
             a = 1
             return
         }
-        switch Live.main.bits {
+        switch LiveValues.main.bits {
         case ._8, ._10:
             // FIXME: BGRA Temp Fix
             b = LiveFloat(pixel[0])
@@ -515,7 +515,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         case .alpha:
             a = 1
         }
-//        space = Live.main.colorSpace
+//        space = LiveValues.main.colorSpace
     }
     
     // MARK: - Functions

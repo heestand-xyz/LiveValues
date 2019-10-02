@@ -1,11 +1,11 @@
-target 'Live' do
+target 'LiveValues' do
   use_frameworks!
 
   pod 'OSCKit'
 
 end
 
-target 'Live-macOS' do
+target 'LiveValues-macOS' do
   use_frameworks!
 
   pod 'OSCKit'
