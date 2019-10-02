@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LiveValues"
-  spec.version      = "1.0.0"
+  spec.version      = "1.1.0"
   spec.summary      = "Live Values for iOS & macOS"
 
   # This description is used to generate tags and improve search results.
