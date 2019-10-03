@@ -95,12 +95,12 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     
     // MARK: Bits
 
-    public enum Bits: Int, Codable {
+    public enum Bits: Int, Codable, CaseIterable {
         case _8 = 8
         case _10 = 10
         case _16 = 16
         case _32 = 32
-        public var mtl: MTLPixelFormat {
+        public var pixelFormat: MTLPixelFormat {
             switch self {
             case ._8: return .bgra8Unorm
             case ._10:
@@ -127,6 +127,14 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         }
         public var max: Int {
             return NSDecimalNumber(decimal: pow(2, self.rawValue)).intValue - 1
+        }
+        public static func bits(for pixelFormat: MTLPixelFormat) -> Bits? {
+            for bits in self.allCases {
+                if bits.pixelFormat == pixelFormat {
+                    return bits
+                }
+            }
+            return nil
         }
     }
     
