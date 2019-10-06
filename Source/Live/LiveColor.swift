@@ -102,7 +102,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         case _32 = 32
         public var pixelFormat: MTLPixelFormat {
             switch self {
-            case ._8: return .bgra8Unorm
+            case ._8: return .bgra8Unorm // .rgba8Unorm
             case ._10:
                 #if os(iOS) && !targetEnvironment(macCatalyst)
                 return .bgra10_xr_srgb
