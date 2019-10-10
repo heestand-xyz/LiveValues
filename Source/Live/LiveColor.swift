@@ -13,6 +13,9 @@ import AppKit
 #else
 import UIKit
 #endif
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
 import CoreGraphics
 
 #if os(macOS)
@@ -222,6 +225,10 @@ public class LiveColor: LiveValue, CustomStringConvertible {
             return UIColor(displayP3Red: r.cg, green: g.cg, blue: b.cg, alpha: a.cg)
         }
     }
+    #endif
+    
+    #if canImport(SwiftUI)
+    public var color: Color { Color(_color) }
     #endif
     
     public var ciColor: CIColor {
