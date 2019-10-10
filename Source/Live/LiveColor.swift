@@ -228,6 +228,7 @@ public class LiveColor: LiveValue, CustomStringConvertible {
     #endif
     
     #if canImport(SwiftUI)
+    @available(iOS 13.0, *)
     public var color: Color { Color(_color) }
     #endif
     
