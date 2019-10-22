@@ -85,6 +85,7 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         }
     }
     public var uniformIsNew: Bool {
+//        guard uniformCache != nil else { return false }
         return uniformCache != CGFloat(self)
     }
     var uniformCache: CGFloat? = nil
