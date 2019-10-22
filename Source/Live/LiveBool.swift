@@ -70,11 +70,11 @@ public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConve
     }
     
     public var uniform: Bool {
-        uniformCache = Bool(self)
-        return Bool(self)
+        uniformCache = value
+        return value
     }
     public var uniformIsNew: Bool {
-        return uniformCache != Bool(self)
+        return uniformCache != value
     }
     var uniformCache: Bool? = nil
     

@@ -79,14 +79,11 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     }
     
     public var uniform: CGFloat {
-        get {
-            uniformCache = CGFloat(self)
-            return CGFloat(self)
-        }
+        uniformCache = value
+        return value
     }
     public var uniformIsNew: Bool {
-//        guard uniformCache != nil else { return false }
-        return uniformCache != CGFloat(self)
+        return uniformCache != value
     }
     var uniformCache: CGFloat? = nil
     
