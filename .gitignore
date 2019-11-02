@@ -3,5 +3,8 @@
 xcuserdata/*
 xcshareddata/*
 
+build/*
+docs/*
+
 Pods/*
 *.xcworkspace
