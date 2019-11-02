@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LiveValues"
-  spec.version      = "1.1.1"
+  spec.version      = "1.1.2"
 
   spec.summary      = "Live Values for iOS & macOS"
   spec.description  = <<-DESC
