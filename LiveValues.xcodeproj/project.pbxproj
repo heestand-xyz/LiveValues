@@ -33,11 +33,8 @@
 		3ACA68F9232A3756003DD309 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
 		3ACA68FF232A392D003DD309 /* MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FC232A392D003DD309 /* MIDI.swift */; };
 		3ACA6900232A392D003DD309 /* MIDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FC232A392D003DD309 /* MIDI.swift */; };
-		3ACA6901232A392D003DD309 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FD232A392D003DD309 /* OSC.swift */; };
-		3ACA6902232A392D003DD309 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FD232A392D003DD309 /* OSC.swift */; };
 		3ACA6903232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
 		3ACA6904232A392D003DD309 /* MIDIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */; };
-		4AC9B6B7B621D016A58A8834 /* Pods_LiveValues.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3436D0A34EF9660F1450248 /* Pods_LiveValues.framework */; };
 		7443E68A2343C3DD0084F947 /* Live_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7443E6882343C3DD0084F947 /* Live_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7443E68E2343C4220084F947 /* LiveValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68E1232A368A003DD309 /* LiveValues.swift */; };
 		7443E68F2343C4270084F947 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68DD232A3606003DD309 /* String.swift */; };
@@ -51,13 +48,9 @@
 		7443E69B2343C6000084F947 /* LiveRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68D2232A3551003DD309 /* LiveRect.swift */; };
 		7443E69C2343C6000084F947 /* LiveColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA68CF232A3551003DD309 /* LiveColor.swift */; };
 		7443E69D2343C6000084F947 /* LiveVec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A296F0D232A70750089F106 /* LiveVec.swift */; };
-		832BD2FB4F714D3AE928A080 /* Pods_LiveValues_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EC9DC8356D4598871132C4 /* Pods_LiveValues_macOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
-		2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.release.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		30EC9DC8356D4598871132C4 /* Pods_LiveValues_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveValues_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A296F0D232A70750089F106 /* LiveVec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveVec.swift; sourceTree = "<group>"; };
 		3ACA68BF232A3544003DD309 /* LiveValues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiveValues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACA68C2232A3544003DD309 /* Live.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live.h; sourceTree = "<group>"; };
@@ -75,18 +68,11 @@
 		3ACA68EA232A374A003DD309 /* Live_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_macOS.h; sourceTree = "<group>"; };
 		3ACA68EB232A374A003DD309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ACA68FC232A392D003DD309 /* MIDI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDI.swift; sourceTree = "<group>"; };
-		3ACA68FD232A392D003DD309 /* OSC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
 		3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDIAssistant.swift; sourceTree = "<group>"; };
 		7443E6862343C3DD0084F947 /* LiveValues_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiveValues_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7443E6882343C3DD0084F947 /* Live_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_tvOS.h; sourceTree = "<group>"; };
 		7443E6902343C5EE0084F947 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
-		8BC1D403C7CD7BEF14EA41EC /* Pods-LiveValues.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveValues.release.xcconfig"; path = "Target Support Files/Pods-LiveValues/Pods-LiveValues.release.xcconfig"; sourceTree = "<group>"; };
-		A3436D0A34EF9660F1450248 /* Pods_LiveValues.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveValues.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
-		AE05D1ABDFE039524CD4C64C /* Pods-LiveValues.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveValues.debug.xcconfig"; path = "Target Support Files/Pods-LiveValues/Pods-LiveValues.debug.xcconfig"; sourceTree = "<group>"; };
-		C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live-macOS.debug.xcconfig"; path = "Target Support Files/Pods-Live-macOS/Pods-Live-macOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C2DF45A75CE03D35A6ED6068 /* Pods-LiveValues-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveValues-macOS.release.xcconfig"; path = "Target Support Files/Pods-LiveValues-macOS/Pods-LiveValues-macOS.release.xcconfig"; sourceTree = "<group>"; };
-		FB5B333A0F8643C23CCD6F69 /* Pods-LiveValues-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveValues-macOS.debug.xcconfig"; path = "Target Support Files/Pods-LiveValues-macOS/Pods-LiveValues-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		74ED8ED4236F55ED004BD10E /* OSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC9B6B7B621D016A58A8834 /* Pods_LiveValues.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832BD2FB4F714D3AE928A080 /* Pods_LiveValues_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +114,6 @@
 				3ACA68C1232A3544003DD309 /* Source */,
 				3A8DD077232A399B00AC98E5 /* Resources */,
 				3ACA68C0232A3544003DD309 /* Products */,
-				E6BC565259CB2CAB22E6548C /* Pods */,
 				A1B3390E8C20AF74DC5CB643 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -188,8 +171,8 @@
 			children = (
 				3ACA68FC232A392D003DD309 /* MIDI.swift */,
 				3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */,
-				3ACA68FD232A392D003DD309 /* OSC.swift */,
 				7443E6902343C5EE0084F947 /* Motion.swift */,
+				74ED8ED4236F55ED004BD10E /* OSC.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -197,25 +180,8 @@
 		A1B3390E8C20AF74DC5CB643 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3436D0A34EF9660F1450248 /* Pods_LiveValues.framework */,
-				30EC9DC8356D4598871132C4 /* Pods_LiveValues_macOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E6BC565259CB2CAB22E6548C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A480F354E4E3D38C19335CF7 /* Pods-Live.debug.xcconfig */,
-				1CB456FBC3DC93A31C14F6F7 /* Pods-Live.release.xcconfig */,
-				C069119201349C07A9A2D434 /* Pods-Live-macOS.debug.xcconfig */,
-				2DF2FA2EC513EF61D126A8B6 /* Pods-Live-macOS.release.xcconfig */,
-				AE05D1ABDFE039524CD4C64C /* Pods-LiveValues.debug.xcconfig */,
-				8BC1D403C7CD7BEF14EA41EC /* Pods-LiveValues.release.xcconfig */,
-				FB5B333A0F8643C23CCD6F69 /* Pods-LiveValues-macOS.debug.xcconfig */,
-				C2DF45A75CE03D35A6ED6068 /* Pods-LiveValues-macOS.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +218,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ACA68C7232A3544003DD309 /* Build configuration list for PBXNativeTarget "LiveValues" */;
 			buildPhases = (
-				E555BA67F2250A4E384A47EE /* [CP] Check Pods Manifest.lock */,
 				3ACA68BA232A3544003DD309 /* Headers */,
 				3ACA68BB232A3544003DD309 /* Sources */,
 				3ACA68BC232A3544003DD309 /* Frameworks */,
@@ -271,7 +236,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ACA68ED232A374A003DD309 /* Build configuration list for PBXNativeTarget "LiveValues-macOS" */;
 			buildPhases = (
-				655DABD72FBD8A42E3424E3B /* [CP] Check Pods Manifest.lock */,
 				3ACA68E3232A374A003DD309 /* Headers */,
 				3ACA68E4232A374A003DD309 /* Sources */,
 				3ACA68E5232A374A003DD309 /* Frameworks */,
@@ -368,53 +332,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		655DABD72FBD8A42E3424E3B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiveValues-macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E555BA67F2250A4E384A47EE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LiveValues-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		3ACA68BB232A3544003DD309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,7 +346,6 @@
 				3ACA68DE232A3606003DD309 /* String.swift in Sources */,
 				3ACA68D7232A3551003DD309 /* LiveColor.swift in Sources */,
 				3ACA68D4232A3551003DD309 /* LiveInt.swift in Sources */,
-				3ACA6901232A392D003DD309 /* OSC.swift in Sources */,
 				3ACA68FF232A392D003DD309 /* MIDI.swift in Sources */,
 				3ACA68D5232A3551003DD309 /* LiveSize.swift in Sources */,
 				3ACA68D8232A3551003DD309 /* LiveValue.swift in Sources */,
@@ -451,7 +367,6 @@
 				3A296F0F232A70760089F106 /* LiveVec.swift in Sources */,
 				3ACA68F2232A3756003DD309 /* LiveFloat.swift in Sources */,
 				3ACA68F1232A3756003DD309 /* LiveValue.swift in Sources */,
-				3ACA6902232A392D003DD309 /* OSC.swift in Sources */,
 				3ACA6900232A392D003DD309 /* MIDI.swift in Sources */,
 				3ACA68F6232A3756003DD309 /* LiveSize.swift in Sources */,
 				3ACA68F3232A3756003DD309 /* LiveInt.swift in Sources */,
@@ -602,10 +517,9 @@
 		};
 		3ACA68C8232A3544003DD309 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE05D1ABDFE039524CD4C64C /* Pods-LiveValues.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -619,7 +533,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.livevalues;
 				PRODUCT_NAME = LiveValues;
 				SKIP_INSTALL = YES;
@@ -630,10 +544,9 @@
 		};
 		3ACA68C9232A3544003DD309 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BC1D403C7CD7BEF14EA41EC /* Pods-LiveValues.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -647,7 +560,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.livevalues;
 				PRODUCT_NAME = LiveValues;
 				SKIP_INSTALL = YES;
@@ -658,11 +571,10 @@
 		};
 		3ACA68EE232A374A003DD309 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB5B333A0F8643C23CCD6F69 /* Pods-LiveValues-macOS.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -676,7 +588,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
@@ -687,11 +599,10 @@
 		};
 		3ACA68EF232A374A003DD309 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2DF45A75CE03D35A6ED6068 /* Pods-LiveValues-macOS.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -705,7 +616,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.mac;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = macosx;
@@ -718,7 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -731,7 +642,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;
@@ -746,7 +657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2QHTY6FMW2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -759,7 +670,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = se.hexagons.live.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;

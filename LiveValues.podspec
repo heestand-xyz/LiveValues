@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LiveValues"
-  spec.version      = "1.1.2"
+  spec.version      = "1.1.3"
 
   spec.summary      = "Live Values for iOS & macOS"
   spec.description  = <<-DESC
@@ -25,14 +25,17 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "Source", "Source/**/*.swift"
 
-  spec.osx.exclude_files = "Source/Data/Motion.swift"
+  spec.osx.exclude_files = "Source/Data/OSC.swift"
+
+  spec.osx.exclude_files = "Source/Data/Motion.swift",
+                           "Source/Data/OSC.swift"
 
   spec.tvos.exclude_files = "Source/Data/Motion.swift",
                             "Source/Data/OSC.swift",
                             "Source/Data/MIDI.swift",
                             "Source/Data/MIDIAssistant.swift"
 
-  spec.ios.dependency 'OSCKit'
-  spec.osx.dependency 'OSCKit'
+  #spec.ios.dependency 'OSCKit'
+  #spec.osx.dependency 'OSCKit'
 
 end

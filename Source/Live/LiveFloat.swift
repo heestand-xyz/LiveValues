@@ -213,11 +213,11 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         })
     }
     
-    public static var oscAny: LiveFloat {
-        return LiveFloat({ () -> (CGFloat) in
-            return OSC.main.firstAny ?? 0.0
-        })
-    }
+//    public static var oscAny: LiveFloat {
+//        return LiveFloat({ () -> (CGFloat) in
+//            return OSC.main.firstAny ?? 0.0
+//        })
+//    }
     #endif
     
     // MARK: - Life Cycle
@@ -518,10 +518,10 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
         return LiveFloat({ return MIDI.main.list[address] ?? 0.0 })
     }
     
-    /// find addresses with `OSC.main.log = true`
-    public static func osc(_ address: String) -> LiveFloat {
-        return LiveFloat({ return OSC.main.list[address] ?? 0.0 })
-    }
+//    /// find addresses with `OSC.main.log = true`
+//    public static func osc(_ address: String) -> LiveFloat {
+//        return LiveFloat({ return OSC.main.list[address] ?? 0.0 })
+//    }
     #endif
     
     public func log(_ message: String? = nil) -> LiveFloat {

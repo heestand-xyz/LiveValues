@@ -9,22 +9,22 @@
 import OSCKit
 
 public class OSC: NSObject, OSCServerDelegate {
-    
+
     public static let main = OSC()
-    
+
     public var port: Int = 10_000 {
         didSet {
             server.listen(port)
         }
     }
-    
+
     let server: OSCServer
-    
+
     public var firstAny: CGFloat?
     public var list: [String: CGFloat] = [:]
-    
+
     public var log: Bool = false
-    
+
     struct Listener {
         let address: String
         let callback: (CGFloat) -> ()
@@ -32,16 +32,16 @@ public class OSC: NSObject, OSCServerDelegate {
     var listeners: [Listener] = []
 
     override init() {
-        
+
         server = OSCServer()
-        
+
         super.init()
-        
+
         server.delegate = self
         server.listen(port)
-        
+
     }
-    
+
     public func handle(_ message: OSCMessage!) {
         guard var address = message.address else { return }
         address = address.replacingOccurrences(of: "/", with: "")
@@ -57,9 +57,9 @@ public class OSC: NSObject, OSCServerDelegate {
         }
         if self.log { print("OSC:", address, value) }
     }
-    
+
     public func listen(to address: String, callback: @escaping (CGFloat) -> ()) {
         listeners.append(Listener(address: address, callback: callback))
     }
-    
+
 }
