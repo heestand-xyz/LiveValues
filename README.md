@@ -55,18 +55,15 @@ import LiveValues
 - `LiveFloat.wave(range: -1.0...1.0, for: 1.0)`
 
 
-## MIDI & OSC
+## MIDI
 
-Here's an example of live midi & osc values in range 0.0 to 1.0.
+Here's an example of live midi values in range 0.0 to 1.0.
 
 ```
 let midiAny = LiveFloat.midiAny
 let midiValue = .midi("<address>")
-
-let oscAny = LiveFloat.oscAny
-let oscValue = .osc("<address>")
 ```
 
 You can find the addresses by enabeling logging like this:
 
-`MIDI.main.log = true` or `OSC.main.log = true`
+`MIDI.main.log = true`
