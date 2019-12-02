@@ -116,6 +116,14 @@ public class LiveColor: LiveValue, CustomStringConvertible {
             case ._32: return .rgba32Float
             }
         }
+        public var monochromePixelFormat: MTLPixelFormat {
+            switch self {
+            case ._8: return .r8Unorm
+            case ._16: return .r16Float
+            case ._32: return .r32Float
+            default: return .r8Unorm
+            }
+        }
         public var ci: CIFormat {
             switch self {
             case ._8, ._10: return .RGBA8
