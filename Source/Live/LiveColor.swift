@@ -572,6 +572,20 @@ public class LiveColor: LiveValue, CustomStringConvertible {
         return LiveColor(h: (hue + hueShift).remainder(dividingBy: 1.0), s: sat, v: val/*, space: space*/)
     }
     
+    public func similar(to color: LiveColor, by value: LiveFloat) -> LiveBool {
+        let rDiff: LiveFloat = r - color.r
+        let gDiff: LiveFloat = g - color.g
+        let bDiff: LiveFloat = b - color.b
+        let aDiff: LiveFloat = a - color.a
+        func getDist(_ a: LiveFloat, _ b: LiveFloat) -> LiveFloat {
+            sqrt(pow(a, 2) + pow(b, 2))
+        }
+        let rgDiff: LiveFloat = getDist(rDiff, gDiff)
+        let rgbDiff: LiveFloat = getDist(rgDiff, bDiff)
+        let rgbaDiff: LiveFloat = getDist(rgbDiff, aDiff)
+        return rgbaDiff < value
+    }
+    
     // MARK: - Operator Overloads
     
     public static func ==  (lhs: LiveColor, rhs: LiveColor) -> LiveBool {
