@@ -30,6 +30,15 @@ public class LiveValues {
     
     public static let main = LiveValues()
     
+    // MARK: - Version
+    
+    public var version: (app: String, build: String)? {
+        guard let infos = Bundle(for: LiveValues.self).infoDictionary else { return nil }
+        guard let appVersion: String = infos["CFBundleShortVersionString"] as? String else { return nil }
+        guard let buildVersion: String = infos["CFBundleVersion"] as? String else { return nil }
+        return (app: appVersion, build: buildVersion)
+    }
+    
     // MARK:  Frame Loop
     
     #if os(macOS)
