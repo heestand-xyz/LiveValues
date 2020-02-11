@@ -73,7 +73,6 @@
 		7443E6862343C3DD0084F947 /* LiveValues_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LiveValues_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7443E6882343C3DD0084F947 /* Live_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Live_tvOS.h; sourceTree = "<group>"; };
 		7443E6902343C5EE0084F947 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
-		74ED8ED4236F55ED004BD10E /* OSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +173,6 @@
 				3ACA68FC232A392D003DD309 /* MIDI.swift */,
 				3ACA68FE232A392D003DD309 /* MIDIAssistant.swift */,
 				7443E6902343C5EE0084F947 /* Motion.swift */,
-				74ED8ED4236F55ED004BD10E /* OSC.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
