@@ -25,17 +25,10 @@ Pod::Spec.new do |spec|
 
   spec.source_files  = "Source", "Source/**/*.swift"
 
-  spec.ios.exclude_files = "Source/Data/OSC.swift"
-
-  spec.osx.exclude_files = "Source/Data/Motion.swift",
-                           "Source/Data/OSC.swift"
+  spec.osx.exclude_files = "Source/Data/Motion.swift"
 
   spec.tvos.exclude_files = "Source/Data/Motion.swift",
-                            "Source/Data/OSC.swift",
                             "Source/Data/MIDI.swift",
                             "Source/Data/MIDIAssistant.swift"
-
-  #spec.ios.dependency 'OSCKit'
-  #spec.osx.dependency 'OSCKit'
 
 end
