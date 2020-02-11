@@ -6,6 +6,8 @@
 //  Copyright © 2018 Hexagons. All rights reserved.
 //
 
+#if os(iOS) || os(macOS)
+
 import CoreMIDI
 
 class MIDIAssistant {
@@ -125,3 +127,5 @@ class MIDIAssistant {
     }
     
 }
+
+#endif

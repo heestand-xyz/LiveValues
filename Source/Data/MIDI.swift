@@ -6,6 +6,8 @@
 //  Copyright © 2018 Hexagons. All rights reserved.
 //
 
+#if os(iOS) || os(macOS)
+
 import CoreGraphics
 
 public class MIDI {
@@ -62,3 +64,4 @@ public class MIDI {
     
 }
 
+#endif
