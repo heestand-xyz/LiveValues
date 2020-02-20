@@ -47,18 +47,22 @@ extension LiveFloat {
     }
 }
 
-public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible/*, BinaryFloatingPoint */ {
+public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible/*, BinaryFloatingPoint */ {
+    
+    public typealias T = CGFloat
     
     public var name: String?
     
     public let type: Any.Type = CGFloat.self
+    
+    public var liveCallbacks: [() -> ()] = []
     
     public var description: String {
         let _value: CGFloat = round(CGFloat(self) * 1_000) / 1_000
         return "live\(name != nil ? "[\(name!)]" : "")(\("\(_value)".zfill(3)))"
     }
     
-    var liveValue: () -> (CGFloat)
+    public var liveValue: () -> (CGFloat)
     var value: CGFloat {
         guard limit else { return liveValue() }
         return Swift.max(Swift.min(liveValue(), max), min)
@@ -87,6 +91,8 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     }
     var uniformCache: CGFloat? = nil
     
+    public var liveCache: CGFloat!
+    
     public static var pi: LiveFloat { return LiveFloat(CGFloat.pi) }
     
 //    public var year: LiveFloat!
@@ -96,11 +102,15 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
 //    public var minute: LiveFloat!
 //    public var second: LiveFloat!
     public static var seconds: LiveFloat {
+        /// access to capture now date
+        _ = LiveValues.main
         return LiveFloat({ () -> (CGFloat) in
             return LiveValues.main.seconds
         })
     }
     public static var secondsSince1970: LiveFloat {
+        /// access to capture now date
+        _ = LiveValues.main
         return LiveFloat({ () -> (CGFloat) in
             return CGFloat(Date().timeIntervalSince1970)
         })
@@ -222,12 +232,17 @@ public class LiveFloat: LiveValue, /*Equatable, Comparable,*/ ExpressibleByFloat
     
     // MARK: - Life Cycle
     
-    public init(_ liveValue: @escaping () -> (CGFloat)) {
+    required public init(_ liveValue: @escaping () -> (CGFloat)) {
         self.liveValue = liveValue
+        checkFuture()
     }
     
     public init(_ liveInt: LiveInt) {
         liveValue = { return CGFloat(Int(liveInt)) }
+    }
+    
+    public required init(_ value: CGFloat) {
+        liveValue = { return value }
     }
     
     public init(_ value: CGFloat, min: CGFloat? = nil, max: CGFloat? = nil, limit: Bool = false) {

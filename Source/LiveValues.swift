@@ -57,15 +57,21 @@ public class LiveValues {
     
     var frameCallbacks: [(id: UUID, callback: () -> ())] = []
     
-    var _fps: Int = -1
-    public var fps: Int { return min(_fps, fpsMax) }
-    public var fpsMax: Int { if #available(iOS 10.3, *) {
+    var _fps: Int = {
         #if os(macOS)
         return 60
         #else
         return UIScreen.main.maximumFramesPerSecond
         #endif
-    } else { return -1 } }
+    }()
+    public var fps: Int { return min(_fps, fpsMax) }
+    public var fpsMax: Int {
+        #if os(macOS)
+        return 60
+        #else
+        return UIScreen.main.maximumFramesPerSecond
+        #endif
+    }
     
     // MARK: Color
     

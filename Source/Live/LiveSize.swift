@@ -8,14 +8,20 @@
 
 import CoreGraphics
 
-public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible {
+public class LiveSize: LiveComboValue, ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible {
     
+    public typealias RAW = LiveFloat
+
     public var name: String?
     
     public let type: Any.Type = CGSize.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var w: LiveFloat
     public var h: LiveFloat
+    
+    public var rawCombo: [LiveFloat] { [w, h] }
     
     public var description: String {
         let _w: CGFloat = round(CGFloat(w) * 1_000) / 1_000
@@ -57,7 +63,7 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
 
     // MARK: - Life Cycle
     
-    public init(_ liveValue: @escaping () -> (CGSize)) {
+    required public init(_ liveValue: @escaping () -> (CGSize)) {
         let val = liveValue()
         w = LiveFloat({ return val.width })
         h = LiveFloat({ return val.height })
@@ -78,7 +84,7 @@ public class LiveSize: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntege
         h = scale
     }
     
-    public init(_ size: CGSize) {
+    required public init(_ size: CGSize) {
         w = LiveFloat(size.width)
         h = LiveFloat(size.height)
     }

@@ -35,16 +35,22 @@ public extension _Color {
     }
 }
 
-public class LiveColor: LiveValue, CustomStringConvertible {
+public class LiveColor: LiveComboValue, CustomStringConvertible {
+    
+    public typealias RAW = LiveFloat
     
     public  var name: String?
     
     public let type: Any.Type = _Color.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var r: LiveFloat
     public var g: LiveFloat
     public var b: LiveFloat
     public var a: LiveFloat
+    
+    public var rawCombo: [LiveFloat] { [r, g, b, a] }
     
     public var description: String {
         let _r: CGFloat = round(CGFloat(r) * 1_000) / 1_000

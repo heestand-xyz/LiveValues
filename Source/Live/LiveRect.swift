@@ -8,16 +8,22 @@
 
 import CoreGraphics
 
-public class LiveRect: LiveValue, ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible {
+public class LiveRect: LiveComboValue, ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral, CustomStringConvertible {
+        
+    public typealias RAW = LiveFloat
     
     public var name: String?
     
     public let type: Any.Type = CGRect.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var x: LiveFloat
     public var y: LiveFloat
     public var w: LiveFloat
     public var h: LiveFloat
+    
+    public var rawCombo: [LiveFloat] { [x, y, w, h] }
     
     public var description: String {
         let _x: CGFloat = round(CGFloat(x) * 1_000) / 1_000

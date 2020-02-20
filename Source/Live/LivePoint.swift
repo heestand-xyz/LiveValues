@@ -11,14 +11,20 @@ import AppKit
 #endif
 import CoreGraphics
 
-public class LivePoint: LiveValue, CustomStringConvertible {
+public class LivePoint: LiveComboValue, CustomStringConvertible {
+    
+    public typealias RAW = LiveFloat
     
     public var name: String?
     
     public let type: Any.Type = CGPoint.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var x: LiveFloat
     public var y: LiveFloat
+    
+    public var rawCombo: [LiveFloat] { [x, y] }
     
     public var description: String {
         let _x: CGFloat = round(CGFloat(x) * 1_000) / 1_000

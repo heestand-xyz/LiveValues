@@ -9,15 +9,21 @@
 import CoreGraphics
 import SceneKit
 
-public class LiveVec: LiveValue {
+public class LiveVec: LiveComboValue {
+    
+    public typealias RAW = LiveFloat
     
     public var name: String?
     
     public let type: Any.Type = SCNVector3.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var x: LiveFloat
     public var y: LiveFloat
     public var z: LiveFloat
+    
+    public var rawCombo: [LiveFloat] { [x, y, z] }
     
     public var description: String {
         let _x: CGFloat = round(CGFloat(x) * 1_000) / 1_000

@@ -31,17 +31,21 @@ extension LiveInt {
     }
 }
 
-public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByIntegerLiteral, CustomStringConvertible {
+public class LiveInt: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByIntegerLiteral, CustomStringConvertible {
     
+    public typealias T = Int
+        
     public var name: String?
     
     public let type: Any.Type = Int.self
+    
+    public var liveCallbacks: [() -> ()] = []
     
     public var description: String {
         return "live\(name != nil ? "[\(name!)]" : "")(\(value))"
     }
     
-    var liveValue: () -> (Int)
+    public var liveValue: () -> (Int)
     var value: Int {
         guard limit else { return liveValue() }
         return Swift.max(Swift.min(liveValue(), max), min)
@@ -62,6 +66,8 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
         return uniformCache != value
     }
     var uniformCache: Int? = nil
+    
+    public var liveCache: Int!
     
     public var val: Int {
         return value
@@ -85,11 +91,15 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
 //    public var second: LiveInt!
     
     public static var seconds: LiveInt {
+        /// access to capture now date
+        _ = LiveValues.main
         return LiveInt({ () -> (Int) in
             return Int(LiveValues.main.seconds)
         })
     }
     public static var secondsSince1970: LiveInt {
+        /// access to capture now date
+        _ = LiveValues.main
         return LiveInt({ () -> (Int) in
             return Int(Date().timeIntervalSince1970)
         })
@@ -105,8 +115,9 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
     
     // MARK: - Life Cycle
     
-    public init(_ liveValue: @escaping () -> (Int)) {
+    required public init(_ liveValue: @escaping () -> (Int)) {
         self.liveValue = liveValue
+        checkFuture()
     }
     
     public init(_ liveFloat: LiveFloat) {
@@ -115,6 +126,10 @@ public class LiveInt: LiveValue, /*Equatable, Comparable,*/ ExpressibleByInteger
     
     public init(_ value: CGFloat) {
         liveValue = { return Int(value) }
+    }
+    
+    public required init(_ value: Int) {
+        liveValue = { value }
     }
     
     public init(_ value: Int, min: Int? = nil, max: Int? = nil, limit: Bool = false) {

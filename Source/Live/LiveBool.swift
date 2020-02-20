@@ -54,17 +54,21 @@ extension LiveBool {
     }
 }
 
-public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConvertible {
+public class LiveBool: LiveRawValue, ExpressibleByBooleanLiteral, CustomStringConvertible {
+    
+    public typealias T = Bool
     
     public var name: String?
     
     public let type: Any.Type = Bool.self
     
+    public var liveCallbacks: [() -> ()] = []
+    
     public var description: String {
         return "live\(name != nil ? "[\(name!)]" : "")(\(Bool(self)))"
     }
     
-    var liveValue: () -> (Bool)
+    public var liveValue: () -> (Bool)
     var value: Bool {
         return liveValue()
     }
@@ -77,6 +81,8 @@ public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConve
         return uniformCache != value
     }
     var uniformCache: Bool? = nil
+    
+    public var liveCache: Bool!
     
     public var val: Bool {
         return value
@@ -92,11 +98,12 @@ public class LiveBool: LiveValue, ExpressibleByBooleanLiteral, CustomStringConve
     
     // MARK: - Life Cycle
     
-    public init(_ liveValue: @escaping () -> (Bool)) {
+    required public init(_ liveValue: @escaping () -> (Bool)) {
         self.liveValue = liveValue
+        checkFuture()
     }
     
-    public init(_ value: Bool) {
+    required public init(_ value: Bool) {
         liveValue = { return value }
     }
     
