@@ -5,15 +5,17 @@
 import Foundation
 import Combine
 
-@propertyWrapper class Live<T: LiveValue> {
+@propertyWrapper class Live<T> {
     let name: String
     let info: String
     var wrappedValue: T {
         didSet {
             callbacks.forEach({ $0(wrappedValue) })
-            wrappedValue.listenToLive { [weak self] in
-                guard let self = self else { return }
-                self.callbacks.forEach({ $0(self.wrappedValue) })
+            if let liveValue = wrappedValue as? LiveValue {
+                liveValue.listenToLive { [weak self] in
+                    guard let self = self else { return }
+                    self.callbacks.forEach({ $0(self.wrappedValue) })
+                }
             }
         }
     }
@@ -31,7 +33,7 @@ import Combine
     }
 }
 
-struct LivePublisher<T: LiveValue>: Publisher {
+struct LivePublisher<T>: Publisher {
     typealias Output = T
     typealias Failure = Never
     let live: Live<T>
@@ -44,7 +46,7 @@ struct LivePublisher<T: LiveValue>: Publisher {
     }
 }
 
-final class LiveSubscription<SubscriberType: Subscriber, T: LiveValue>: Subscription where SubscriberType.Input == T {
+final class LiveSubscription<SubscriberType: Subscriber, T>: Subscription where SubscriberType.Input == T {
     private var subscriber: SubscriberType?
     let live: Live<T>
     init(subscriber: SubscriberType, live: Live<T>) {
