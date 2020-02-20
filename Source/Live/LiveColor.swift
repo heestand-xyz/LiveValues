@@ -495,9 +495,9 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
             let b = hex[2..<3]
             hex = r + r + g + g + b + b
         }
-        var hexInt: UInt32 = 0
+        var hexInt: UInt64 = 0
         let scanner: Scanner = Scanner(string: hex)
-        scanner.scanHexInt32(&hexInt)
+        scanner.scanHexInt64(&hexInt)
         self.r = LiveFloat(CGFloat((hexInt & 0xff0000) >> 16) / 255.0)
         self.g = LiveFloat(CGFloat((hexInt & 0xff00) >> 8) / 255.0)
         self.b = LiveFloat(CGFloat((hexInt & 0xff) >> 0) / 255.0)

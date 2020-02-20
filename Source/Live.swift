@@ -5,7 +5,8 @@
 import Foundation
 import Combine
 
-public protocol AnyLive: Identifiable, Equatable, Codable {}
+public typealias AnyLive = Any
+//public protocol AnyLive: Identifiable, Equatable, Codable {}
 
 @propertyWrapper public class Live<T: AnyLive> {
     public let name: String

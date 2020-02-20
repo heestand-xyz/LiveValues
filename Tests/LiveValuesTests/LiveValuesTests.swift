@@ -68,11 +68,28 @@ final class LiveValuesTests: XCTestCase {
         }), forMode: .common)
         waitForExpectations(timeout: duration + 0.1)
     }
+    
+    func testHex() {
+        let colors: [(String, LiveColor)] = [
+            ("ff0000", .red),
+            ("00ff00", .green),
+            ("0000ff", .blue),
+        ]
+        for color in colors {
+            let hexA: [Int] = LiveColor(hex: "#" + color.0).list.map({ Int(round($0 * 255)) })
+            let hexB: [Int] = LiveColor(hex: color.0).list.map({ Int(round($0 * 255)) })
+            let raw: [Int] = color.1.list.map({ Int(round($0 * 255)) })
+            XCTAssertEqual(hexA, hexB)
+            XCTAssertEqual(hexA, raw)
+            XCTAssertEqual(hexB, raw)
+        }
+    }
 
     static var allTests = [
         ("testSeconds", testSeconds),
         ("testSink", testSink),
         ("testLiveSink", testLiveSink),
+        ("testHex", testHex),
     ]
     
 }
