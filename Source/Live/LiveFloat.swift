@@ -116,7 +116,7 @@ public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFl
         })
     }
     
-    public var isFrozen: Bool = false
+//    public var isFrozen: Bool = false
     public static var live: LiveFloat {
         var value: CGFloat = 0.0
         var lastFrame: Int = -1
@@ -125,9 +125,9 @@ public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFl
                 lastFrame = LiveValues.main.frame
                 return value
             }
-            if !self.live.isFrozen {
-                value += 1.0 / CGFloat(LiveValues.main.fps)
-            }
+//            if !self.live.isFrozen {
+            value += 1.0 / CGFloat(LiveValues.main.fps)
+//            }
             lastFrame = LiveValues.main.frame
             return value
         })
@@ -621,13 +621,13 @@ public func rad(deg live: LiveFloat) -> LiveFloat {
     return LiveFloat({ return (CGFloat(live) / 360.0) * .pi * 2.0 })
 }
 
-public func freeze(_ live: LiveFloat, _ frozen: LiveBool) -> LiveFloat {
-    var frozenLive: CGFloat? = nil
-    return LiveFloat({
-        live.isFrozen = frozen.value
-        if !live.isFrozen {
-            frozenLive = live.value
-        }
-        return live.isFrozen ? frozenLive ?? 0.0 : live.value
-    })
-}
+//public func freeze(_ live: LiveFloat, _ frozen: LiveBool) -> LiveFloat {
+//    var frozenLive: CGFloat? = nil
+//    return LiveFloat({
+//        live.isFrozen = frozen.value
+//        if !live.isFrozen {
+//            frozenLive = live.value
+//        }
+//        return live.isFrozen ? frozenLive ?? 0.0 : live.value
+//    })
+//}

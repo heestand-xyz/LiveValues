@@ -24,7 +24,7 @@ final class LiveValuesTests: XCTestCase {
                 }), forMode: .common)
             }), forMode: .common)
         }), forMode: .common)
-        waitForExpectations(timeout: 4.0)
+        waitForExpectations(timeout: 3.1)
     }
     
     func testSink() {
@@ -48,8 +48,17 @@ final class LiveValuesTests: XCTestCase {
             XCTAssertNotEqual(v, value.cg)
             v = value.cg
         }
+        wait(for: 1.0)
         XCTAssertNotNil(v)
         p.cancel()
+    }
+    
+    func wait(for duration: Double) {
+        let exp = expectation(description: "Wait")
+        RunLoop.current.add(Timer(timeInterval: duration, repeats: false, block: { _ in
+            exp.fulfill()
+        }), forMode: .common)
+        waitForExpectations(timeout: duration + 0.1)
     }
 
     static var allTests = [

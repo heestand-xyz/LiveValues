@@ -10,18 +10,11 @@ import Combine
     let info: String
     var wrappedValue: T {
         didSet {
-//            if let raw: LiveRawValue = wrappedValue as? LiveRawValue {
-//                raw.liveCallbacks.append {
-//                    self.callbacks.forEach({ $0(self.wrappedValue) })
-//                }
-//            } else if let combo: LiveComboValue = wrappedValue as? LiveComboValue {
-//                combo.rawCombo.forEach { raw in
-//                    raw.liveCallbacks.append {
-//                        callbacks.forEach({ $0(wrappedValue) })
-//                    }
-//                }
-//            }
             callbacks.forEach({ $0(wrappedValue) })
+            wrappedValue.listenToLive { [weak self] in
+                guard let self = self else { return }
+                self.callbacks.forEach({ $0(self.wrappedValue) })
+            }
         }
     }
     var callbacks: [(T) -> ()] = []
@@ -55,13 +48,11 @@ final class LiveSubscription<SubscriberType: Subscriber, T: LiveValue>: Subscrip
         self.subscriber = subscriber
         self.live = live
         live.callbacks.append { value in
-            print("call", value, self.subscriber != nil)
             _ = self.subscriber?.receive(value)
         }
     }
     func request(_ demand: Subscribers.Demand) {}
     func cancel() {
-        print("cancel sub")
         subscriber = nil
     }
 }
