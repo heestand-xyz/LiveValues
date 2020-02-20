@@ -12,7 +12,8 @@ final class LiveValuesTests: XCTestCase {
     override func tearDown() {}
     
     func testSeconds() {
-        val = .seconds
+        val = .secondsSinceNow
+        XCTAssertEqual(round(val.cg * 10) / 10, 0.0)
         let exp = expectation(description: "Seconds")
         RunLoop.current.add(Timer(timeInterval: 1.0, repeats: false, block: { _ in
             XCTAssertEqual(round(self.val.cg * 10) / 10, 1.0)
@@ -43,8 +44,7 @@ final class LiveValuesTests: XCTestCase {
     func testLiveSink() {
         val = .live
         var v: CGFloat?
-        let p = _val.publisher().sink { value in
-            print("sink", value)
+        let p = _val.sink { value in
             XCTAssertNotEqual(v, value.cg)
             v = value.cg
         }

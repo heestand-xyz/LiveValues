@@ -26,6 +26,9 @@ import Combine
     func publisher() -> LivePublisher<T> {
         LivePublisher(live: self)
     }
+    func sink(receiveValue: @escaping ((T) -> Void)) -> AnyCancellable {
+        publisher().sink(receiveValue: receiveValue)
+    }
 }
 
 struct LivePublisher<T: LiveValue>: Publisher {

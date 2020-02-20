@@ -108,6 +108,12 @@ public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFl
             return LiveValues.main.seconds
         })
     }
+    public static var secondsSinceNow: LiveFloat {
+        let now: Date = Date()
+        return LiveFloat({ () -> (CGFloat) in
+            CGFloat(-now.timeIntervalSinceNow)
+        })
+    }
     public static var secondsSince1970: LiveFloat {
         /// access to capture now date
         _ = LiveValues.main
