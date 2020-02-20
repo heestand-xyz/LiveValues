@@ -5,10 +5,12 @@
 import Foundation
 import Combine
 
-@propertyWrapper class Live<T> {
-    let name: String
-    let info: String
-    var wrappedValue: T {
+public protocol AnyLive: Identifiable, Equatable, Codable {}
+
+@propertyWrapper public class Live<T: AnyLive> {
+    public let name: String
+    public let info: String
+    public var wrappedValue: T {
         didSet {
             callbacks.forEach({ $0(wrappedValue) })
             if let liveValue = wrappedValue as? LiveValue {
@@ -20,12 +22,12 @@ import Combine
         }
     }
     var callbacks: [(T) -> ()] = []
-    init(default defaultValue: T, name: String, info: String) {
+    public init(default defaultValue: T, name: String, info: String) {
         wrappedValue = defaultValue
         self.name = name
         self.info = info
     }
-    func publisher() -> LivePublisher<T> {
+    public func publisher() -> LivePublisher<T> {
         LivePublisher(live: self)
     }
     func sink(receiveValue: @escaping ((T) -> Void)) -> AnyCancellable {
@@ -33,20 +35,20 @@ import Combine
     }
 }
 
-struct LivePublisher<T>: Publisher {
-    typealias Output = T
-    typealias Failure = Never
+public struct LivePublisher<T: AnyLive>: Publisher {
+    public typealias Output = T
+    public typealias Failure = Never
     let live: Live<T>
     init(live: Live<T>) {
         self.live = live
     }
-    func receive<S>(subscriber: S) where S : Subscriber, S.Failure == LivePublisher.Failure, S.Input == LivePublisher.Output {
+    public func receive<S>(subscriber: S) where S : Subscriber, S.Failure == LivePublisher.Failure, S.Input == LivePublisher.Output {
         let subscription = LiveSubscription(subscriber: subscriber, live: live)
         subscriber.receive(subscription: subscription)
     }
 }
 
-final class LiveSubscription<SubscriberType: Subscriber, T>: Subscription where SubscriberType.Input == T {
+final class LiveSubscription<SubscriberType: Subscriber, T: AnyLive>: Subscription where SubscriberType.Input == T {
     private var subscriber: SubscriberType?
     let live: Live<T>
     init(subscriber: SubscriberType, live: Live<T>) {
@@ -59,5 +61,12 @@ final class LiveSubscription<SubscriberType: Subscriber, T>: Subscription where 
     func request(_ demand: Subscribers.Demand) {}
     func cancel() {
         subscriber = nil
+    }
+}
+
+struct AnyAnyLive<T: AnyLive> {
+    let val: T
+    init(_ val: T) {
+        self.val = val
     }
 }
