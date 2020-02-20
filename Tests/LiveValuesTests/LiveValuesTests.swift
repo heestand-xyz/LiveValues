@@ -7,9 +7,17 @@ final class LiveValuesTests: XCTestCase {
 
     @Live(default: 0.0, name: "Val", info: "Value") var val: LiveFloat
     
-    override func setUp() {}
+    var sunk: AnyCancellable!
     
-    override func tearDown() {}
+    override func setUp() {
+        sunk = _val.publisher().throttle(for: .seconds(0.1), scheduler: RunLoop.current, latest: true).sink { value in
+            print("sink", value)
+        }
+    }
+    
+    override func tearDown() {
+        sunk.cancel()
+    }
     
     func testSeconds() {
         val = .secondsSinceNow
