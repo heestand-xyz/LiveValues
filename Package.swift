@@ -5,17 +5,15 @@ import PackageDescription
 let package = Package(
     name: "LiveValues",
     platforms: [
-        .iOS(.v11),
-        .macOS(.v10_12),
-        .tvOS(.v11)
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .tvOS(.v13)
     ],
     products: [
         .library(name: "LiveValues", targets: ["LiveValues"]),
     ],
-    dependencies: [
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
     targets: [
-        .target(name: "LiveValues", path: "Source")
+        .target(name: "LiveValues", path: "Source"),
+        .testTarget(name: "LiveValuesTests", dependencies: ["LiveValues"]),
     ]
 )
