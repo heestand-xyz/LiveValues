@@ -10,7 +10,7 @@ public typealias AnyLive = Any
 
 @propertyWrapper public class Live<T: AnyLive> {
     public let name: String
-    public let info: String
+    public let info: String?
     public var wrappedValue: T {
         didSet {
             callbacks.forEach({ $0(wrappedValue) })
@@ -23,7 +23,12 @@ public typealias AnyLive = Any
         }
     }
     var callbacks: [(T) -> ()] = []
-    public init(default defaultValue: T, name: String, info: String) {
+    public init(wrappedValue initialValue: T) {
+        wrappedValue = initialValue
+        self.name = ""
+        self.info = nil
+    }
+    public init(default defaultValue: T, name: String, info: String? = nil) {
         wrappedValue = defaultValue
         self.name = name
         self.info = info
