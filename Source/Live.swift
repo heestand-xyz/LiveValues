@@ -9,9 +9,11 @@ public protocol AnyLive {
     func sink(update: @escaping () -> ()) -> AnyCancellable
 }
 
-@propertyWrapper public class Live<T>: AnyLive {
+@propertyWrapper public class Live<T>: AnyLive, CustomStringConvertible {
     public let name: String
+    var snakeName: String { name.lowercased().replacingOccurrences(of: " ", with: "_") }
     public let info: String?
+    public var description: String { "live-\(snakeName)(\(wrappedValue))" }
     public var wrappedValue: T {
         didSet {
             callbacks.forEach({ $0(wrappedValue) })
