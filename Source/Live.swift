@@ -5,10 +5,11 @@
 import Foundation
 import Combine
 
-public typealias AnyLive = Any
-//public protocol AnyLive: Identifiable, Equatable, Codable {}
+public protocol AnyLive {
+    func sink(update: @escaping () -> ()) -> AnyCancellable
+}
 
-@propertyWrapper public class Live<T: AnyLive> {
+@propertyWrapper public class Live<T>: AnyLive {
     public let name: String
     public let info: String?
     public var wrappedValue: T {
@@ -39,9 +40,15 @@ public typealias AnyLive = Any
     func sink(receiveValue: @escaping ((T) -> Void)) -> AnyCancellable {
         publisher().sink(receiveValue: receiveValue)
     }
+    public func sink(update: @escaping () -> ()) -> AnyCancellable {
+        publisher().sink(receiveValue: { _ in update() })
+    }
+    public func getLive<T>() -> Live<T>? {
+        return self as? Live<T>
+    }
 }
 
-public struct LivePublisher<T: AnyLive>: Publisher {
+public struct LivePublisher<T>: Publisher {
     public typealias Output = T
     public typealias Failure = Never
     let live: Live<T>
@@ -54,7 +61,7 @@ public struct LivePublisher<T: AnyLive>: Publisher {
     }
 }
 
-final class LiveSubscription<SubscriberType: Subscriber, T: AnyLive>: Subscription where SubscriberType.Input == T {
+final class LiveSubscription<SubscriberType: Subscriber, T>: Subscription where SubscriberType.Input == T {
     private var subscriber: SubscriberType?
     let live: Live<T>
     init(subscriber: SubscriberType, live: Live<T>) {
@@ -67,12 +74,5 @@ final class LiveSubscription<SubscriberType: Subscriber, T: AnyLive>: Subscripti
     func request(_ demand: Subscribers.Demand) {}
     func cancel() {
         subscriber = nil
-    }
-}
-
-struct AnyAnyLive<T: AnyLive> {
-    let val: T
-    init(_ val: T) {
-        self.val = val
     }
 }
