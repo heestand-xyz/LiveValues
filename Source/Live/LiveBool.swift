@@ -96,6 +96,10 @@ public class LiveBool: LiveRawValue, ExpressibleByBooleanLiteral, CustomStringCo
     
     #endif
     
+    public static var darkMode: LiveBool {
+        LiveBool({ UIView().traitCollection.userInterfaceStyle == .dark })
+    }
+    
     // MARK: - Life Cycle
     
     required public init(_ liveValue: @escaping () -> (Bool)) {
