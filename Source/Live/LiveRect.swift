@@ -73,11 +73,10 @@ public class LiveRect: LiveComboValue, ExpressibleByFloatLiteral, ExpressibleByI
     // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGRect)) {
-        let val = liveValue()
-        x = LiveFloat({ return val.minX })
-        y = LiveFloat({ return val.minY })
-        w = LiveFloat({ return val.width })
-        h = LiveFloat({ return val.height })
+        x = LiveFloat({ liveValue().minX })
+        y = LiveFloat({ liveValue().minY })
+        w = LiveFloat({ liveValue().width })
+        h = LiveFloat({ liveValue().height })
     }
     
     public init(x: LiveFloat, y: LiveFloat, w: LiveFloat, h: LiveFloat) {

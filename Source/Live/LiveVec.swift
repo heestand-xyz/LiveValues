@@ -56,10 +56,9 @@ public class LiveVec: LiveComboValue {
     // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (SCNVector3)) {
-        let val = liveValue()
-        x = LiveFloat({ return CGFloat(val.x) })
-        y = LiveFloat({ return CGFloat(val.y) })
-        z = LiveFloat({ return CGFloat(val.z) })
+        x = LiveFloat({ CGFloat(liveValue().x) })
+        y = LiveFloat({ CGFloat(liveValue().y) })
+        z = LiveFloat({ CGFloat(liveValue().z) })
     }
     
     public init(x: LiveFloat, y: LiveFloat, z: LiveFloat) {

@@ -58,9 +58,8 @@ public class LivePoint: LiveComboValue, CustomStringConvertible {
     // MARK: - Life Cycle
     
     public init(_ liveValue: @escaping () -> (CGPoint)) {
-        let val = liveValue()
-        x = LiveFloat({ return val.x })
-        y = LiveFloat({ return val.y })
+        x = LiveFloat({ liveValue().x })
+        y = LiveFloat({ liveValue().y })
     }
     
     public init(x: LiveFloat, y: LiveFloat) {

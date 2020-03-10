@@ -281,11 +281,10 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
     // MARK: Future
     
     public init(_ liveValue: @escaping () -> (_Color)) {
-        let liveColor = LiveColor(liveValue())
-        r = liveColor.r
-        g = liveColor.g
-        b = liveColor.b
-        a = liveColor.a
+        r = LiveFloat({ CIColor(color: liveValue()).red })
+        g = LiveFloat({ CIColor(color: liveValue()).green })
+        b = LiveFloat({ CIColor(color: liveValue()).blue })
+        a = LiveFloat({ CIColor(color: liveValue()).alpha })
     }
     
     // MARK: RGB
