@@ -281,10 +281,17 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
     // MARK: Future
     
     public init(_ liveValue: @escaping () -> (_Color)) {
+        #if os(macOS)
+        r = LiveFloat({ CIColor(color: liveValue())?.red ?? 0.0 })
+        g = LiveFloat({ CIColor(color: liveValue())?.green ?? 0.0 })
+        b = LiveFloat({ CIColor(color: liveValue())?.blue ?? 0.0 })
+        a = LiveFloat({ CIColor(color: liveValue())?.alpha ?? 0.0 })
+        #else
         r = LiveFloat({ CIColor(color: liveValue()).red })
         g = LiveFloat({ CIColor(color: liveValue()).green })
         b = LiveFloat({ CIColor(color: liveValue()).blue })
         a = LiveFloat({ CIColor(color: liveValue()).alpha })
+        #endif
     }
     
     // MARK: RGB
