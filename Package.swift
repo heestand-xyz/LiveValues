@@ -5,9 +5,9 @@ import PackageDescription
 let package = Package(
     name: "LiveValues",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v10_15),
-        .tvOS(.v13)
+        .iOS(.v11),
+        .macOS(.v10_13),
+        .tvOS(.v11)
     ],
     products: [
         .library(name: "LiveValues", targets: ["LiveValues"]),

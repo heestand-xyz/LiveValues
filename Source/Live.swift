@@ -5,10 +5,14 @@
 import Foundation
 import Combine
 
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
 public protocol AnyLive {
     func sink(update: @escaping () -> ()) -> AnyCancellable
 }
 
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
 @propertyWrapper public class Live<T>: AnyLive, CustomStringConvertible {
     public let name: String
     var snakeName: String { name.lowercased().replacingOccurrences(of: " ", with: "_") }
@@ -50,6 +54,8 @@ public protocol AnyLive {
     }
 }
 
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
 public struct LivePublisher<T>: Publisher {
     public typealias Output = T
     public typealias Failure = Never
@@ -63,6 +69,8 @@ public struct LivePublisher<T>: Publisher {
     }
 }
 
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
 final class LiveSubscription<SubscriberType: Subscriber, T>: Subscription where SubscriberType.Input == T {
     private var subscriber: SubscriberType?
     let live: Live<T>

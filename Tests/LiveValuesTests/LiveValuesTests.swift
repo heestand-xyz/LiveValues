@@ -3,6 +3,7 @@ import XCTest
 import Foundation
 import Combine
 
+@available(OSX 10.15, *)
 final class LiveValuesTests: XCTestCase {
 
     @Live(default: 0.0, name: "Val", info: "Value") var val: LiveFloat

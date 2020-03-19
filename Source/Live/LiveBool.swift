@@ -99,9 +99,17 @@ public class LiveBool: LiveRawValue, ExpressibleByBooleanLiteral, CustomStringCo
     public static var darkMode: LiveBool {
         LiveBool({
             #if os(macOS)
-            return NSApp.effectiveAppearance.name == NSAppearance.Name.darkAqua
+            if #available(OSX 10.14, *) {
+                return NSApp.effectiveAppearance.name == .darkAqua
+            } else {
+                return false
+            }
             #else
-            return UIView().traitCollection.userInterfaceStyle == .dark
+            if #available(iOS 12.0, *) {
+                return UIView().traitCollection.userInterfaceStyle == .dark
+            } else {
+                return false
+            }
             #endif
         })
     }
