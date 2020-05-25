@@ -383,9 +383,9 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
         return LiveFloat({ self.hsv().v })
     }
     func hsv() -> (h: CGFloat, s: CGFloat, v: CGFloat) {
-        let r = CGFloat(self.r)
-        let g = CGFloat(self.g)
-        let b = CGFloat(self.b)
+        let r: CGFloat = self.r.cg
+        let g: CGFloat = self.g.cg
+        let b: CGFloat = self.b.cg
         var h, s, v: CGFloat
         var mn, mx, d: CGFloat
         mn = r < g ? r : g
@@ -421,11 +421,26 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
         return (h: h, s: s, v: v)
     }
     
+    typealias RGB = (r: CGFloat, g: CGFloat, b: CGFloat)
+    typealias HSV = (h: CGFloat, s: CGFloat, v: CGFloat)
     public init(h: LiveFloat, s: LiveFloat = 1.0, v: LiveFloat = 1.0, a: LiveFloat = 1.0) {
-        r = LiveFloat({ return LiveColor.rgb(h: CGFloat(h), s: CGFloat(s), v: CGFloat(v)).r })
-        g = LiveFloat({ return LiveColor.rgb(h: CGFloat(h), s: CGFloat(s), v: CGFloat(v)).g })
-        b = LiveFloat({ return LiveColor.rgb(h: CGFloat(h), s: CGFloat(s), v: CGFloat(v)).b })
+        let getHSV: () -> (HSV) = { () -> HSV in (h: h.cg, s: s.cg, v: v.cg) }
+        var lastHSV: HSV = getHSV()
+        var lastRGB: RGB = LiveColor.rgb(hsv: lastHSV)
+        let getRGB: () -> (RGB) = { () -> RGB in
+            if getHSV() != lastHSV {
+                lastHSV = getHSV()
+                lastRGB = LiveColor.rgb(hsv: lastHSV)
+            }
+            return lastRGB
+        }
+        r = LiveFloat({ getRGB().r })
+        g = LiveFloat({ getRGB().g })
+        b = LiveFloat({ getRGB().b })
         self.a = a
+    }
+    static func rgb(hsv: HSV) -> RGB {
+        rgb(h: hsv.h, s: hsv.s, v: hsv.v)
     }
     static func rgb(h: CGFloat, s: CGFloat, v: CGFloat) -> (r: CGFloat, g: CGFloat, b: CGFloat) {
         let r: CGFloat
