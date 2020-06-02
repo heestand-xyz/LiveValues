@@ -38,7 +38,11 @@ public extension Double {
 extension LiveFloat {
     public var bond: Binding<CGFloat> {
         var value: CGFloat = cg
-        self.liveValue = { value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
         return Binding<CGFloat>(get: {
             self.cg
         }, set: { val in
@@ -62,7 +66,14 @@ public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFl
         return "live\(name != nil ? "[\(name!)]" : "")(\("\(_value)".zfill(3)))"
     }
     
-    public var liveValue: () -> (CGFloat)
+    public var nonLiveValue: CGFloat!
+    public var _liveValue: (() -> (CGFloat))!
+    public var liveValue: () -> (CGFloat) {
+        guard LiveValues.live else {
+            return { self.nonLiveValue }
+        }
+        return _liveValue
+    }
     var value: CGFloat {
         guard limit else { return liveValue() }
         return Swift.max(Swift.min(liveValue(), max), min)
@@ -239,39 +250,75 @@ public class LiveFloat: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByFl
     // MARK: - Life Cycle
     
     required public init(_ liveValue: @escaping () -> (CGFloat)) {
-        self.liveValue = liveValue
+        if LiveValues.live {
+            _liveValue = liveValue
+        } else {
+            nonLiveValue = liveValue()
+        }
         checkFuture()
     }
     
     public init(_ liveInt: LiveInt) {
-        liveValue = { return CGFloat(Int(liveInt)) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(Int(liveInt)) }
+        } else {
+            nonLiveValue = CGFloat(Int(liveInt))
+        }
     }
     
     public required init(_ value: CGFloat) {
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
     }
     
     public init(_ value: CGFloat, min: CGFloat? = nil, max: CGFloat? = nil, limit: Bool = false) {
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
         self.min = min ?? 0.0
         self.max = max ?? 1.0
         self.limit = limit
     }
     public init(_ value: Float) {
-        liveValue = { return CGFloat(value) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(value) }
+        } else {
+            nonLiveValue = CGFloat(value)
+        }
     }
     public init(_ value: Double) {
-        liveValue = { return CGFloat(value) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(value) }
+        } else {
+            nonLiveValue = CGFloat(value)
+        }
     }
     required public init(floatLiteral value: FloatLiteralType) {
-        liveValue = { return CGFloat(value) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(value) }
+        } else {
+            nonLiveValue = CGFloat(value)
+        }
     }
     
     public init(_ value: Int) {
-        liveValue = { return CGFloat(value) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(value) }
+        } else {
+            nonLiveValue = CGFloat(value)
+        }
     }
     required public init(integerLiteral value: IntegerLiteralType) {
-        liveValue = { return CGFloat(value) }
+        if LiveValues.live {
+            _liveValue = { CGFloat(value) }
+        } else {
+            nonLiveValue = CGFloat(value)
+        }
     }
     
 //    public init(name: String, value: CGFloat, min: CGFloat, max: CGFloat) {

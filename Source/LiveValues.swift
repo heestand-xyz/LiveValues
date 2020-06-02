@@ -30,6 +30,12 @@ public class LiveValues {
     
     public static let main = LiveValues()
     
+    // MARK: Live
+    
+    /// **Live**
+    /// - do not change while running
+    public static var live: Bool = true
+    
     // MARK: - Version
     
     public var version: String? {

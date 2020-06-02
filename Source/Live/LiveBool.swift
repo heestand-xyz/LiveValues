@@ -45,7 +45,11 @@ public extension Bool {
 extension LiveBool {
     public var bond: Binding<Bool> {
         var value: Bool = val
-        self.liveValue = { value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
         return Binding<Bool>(get: {
             self.val
         }, set: { val in
@@ -68,7 +72,14 @@ public class LiveBool: LiveRawValue, ExpressibleByBooleanLiteral, CustomStringCo
         return "live\(name != nil ? "[\(name!)]" : "")(\(Bool(self)))"
     }
     
-    public var liveValue: () -> (Bool)
+    public var nonLiveValue: Bool!
+    public var _liveValue: (() -> (Bool))!
+    public var liveValue: () -> (Bool) {
+        guard LiveValues.live else {
+            return { self.nonLiveValue }
+        }
+        return _liveValue
+    }
     var value: Bool {
         return liveValue()
     }
@@ -117,22 +128,38 @@ public class LiveBool: LiveRawValue, ExpressibleByBooleanLiteral, CustomStringCo
     // MARK: - Life Cycle
     
     required public init(_ liveValue: @escaping () -> (Bool)) {
-        self.liveValue = liveValue
+        if LiveValues.live {
+            _liveValue = liveValue
+        } else {
+            nonLiveValue = liveValue()
+        }
         checkFuture()
     }
     
     required public init(_ value: Bool) {
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
     }
     
     required public init(booleanLiteral value: BooleanLiteralType) {
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
     }
     
     public init(name: String, value: Bool) {
         self.name = name
         self.name = name
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
     }
     
     // MARK: Equatable

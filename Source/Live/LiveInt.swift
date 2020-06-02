@@ -22,7 +22,11 @@ public extension Int {
 extension LiveInt {
     public var bond: Binding<Int> {
         var value: Int = val
-        self.liveValue = { value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
         return Binding<Int>(get: {
             self.val
         }, set: { val in
@@ -45,7 +49,14 @@ public class LiveInt: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByInte
         return "live\(name != nil ? "[\(name!)]" : "")(\(value))"
     }
     
-    public var liveValue: () -> (Int)
+    public var nonLiveValue: Int!
+    public var _liveValue: (() -> (Int))!
+    public var liveValue: () -> (Int) {
+        guard LiveValues.live else {
+            return { self.nonLiveValue }
+        }
+        return _liveValue
+    }
     var value: Int {
         guard limit else { return liveValue() }
         return Swift.max(Swift.min(liveValue(), max), min)
@@ -116,31 +127,55 @@ public class LiveInt: LiveRawValue, /*Equatable, Comparable,*/ ExpressibleByInte
     // MARK: - Life Cycle
     
     required public init(_ liveValue: @escaping () -> (Int)) {
-        self.liveValue = liveValue
+        if LiveValues.live {
+            _liveValue = liveValue
+        } else {
+            nonLiveValue = liveValue()
+        }
         checkFuture()
     }
     
     public init(_ liveFloat: LiveFloat) {
-        liveValue = { return Int(liveFloat.value) }
+        if LiveValues.live {
+            _liveValue = { Int(liveFloat.value) }
+        } else {
+            nonLiveValue = Int(liveFloat.value)
+        }
     }
     
     public init(_ value: CGFloat) {
-        liveValue = { return Int(value) }
+        if LiveValues.live {
+            _liveValue = { Int(value) }
+        } else {
+            nonLiveValue = Int(value)
+        }
     }
     
     public required init(_ value: Int) {
-        liveValue = { value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
     }
     
     public init(_ value: Int, min: Int? = nil, max: Int? = nil, limit: Bool = false) {
-        liveValue = { return value }
+        if LiveValues.live {
+            _liveValue = { value }
+        } else {
+            nonLiveValue = value
+        }
         self.min = min ?? 0
         self.max = max ?? 1
         self.limit = limit
     }
     
     required public init(integerLiteral value: IntegerLiteralType) {
-        liveValue = { return Int(value) }
+        if LiveValues.live {
+            _liveValue = { Int(value) }
+        } else {
+            nonLiveValue = Int(value)
+        }
     }
     
 //    public init(name: String, value: Int, min: CGFloat, max: CGFloat) {
