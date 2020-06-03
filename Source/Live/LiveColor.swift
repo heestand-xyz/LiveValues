@@ -525,6 +525,16 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
         self.a = LiveFloat(a)
     }
     
+    // MARK: - Other
+    
+    public var isLightish: LiveBool {
+        let isLight: LiveBool = val > 0.5
+        let isLowSat: LiveBool = sat < 0.5
+        let isLightGreen: LiveBool = g > 2 / 3
+        let isLightish: LiveBool = (isLight && isLowSat) || isLightGreen
+        return isLightish
+    }
+    
     // MARK: - Pure
     
     public enum Pure {
