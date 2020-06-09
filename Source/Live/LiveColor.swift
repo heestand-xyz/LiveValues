@@ -296,11 +296,23 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
     
     // MARK: RGB
     
-    public init(r: LiveFloat, g: LiveFloat, b: LiveFloat, a: LiveFloat = 1) {
+    public init(r: LiveFloat, g: LiveFloat, b: LiveFloat, a: LiveFloat = 1.0) {
         self.r = r
         self.g = g
         self.b = b
         self.a = a
+    }
+    
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0) {
+        self.init(r: LiveFloat(r), g: LiveFloat(g), b: LiveFloat(b), a: LiveFloat(a))
+    }
+    
+    public convenience init(r: Double, g: Double, b: Double, a: Double = 1.0) {
+        self.init(r: LiveFloat(r), g: LiveFloat(g), b: LiveFloat(b), a: LiveFloat(a))
+    }
+    
+    public convenience init(r: Float, g: Float, b: Float, a: Float = 1.0) {
+        self.init(r: LiveFloat(r), g: LiveFloat(g), b: LiveFloat(b), a: LiveFloat(a))
     }
     
     public init(r255: Int, g255: Int, b255: Int, a255: Int = 255) {
@@ -423,6 +435,7 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
     
     typealias RGB = (r: CGFloat, g: CGFloat, b: CGFloat)
     typealias HSV = (h: CGFloat, s: CGFloat, v: CGFloat)
+    
     public init(h: LiveFloat, s: LiveFloat = 1.0, v: LiveFloat = 1.0, a: LiveFloat = 1.0) {
         let getHSV: () -> (HSV) = { () -> HSV in (h: h.cg, s: s.cg, v: v.cg) }
         var lastHSV: HSV = getHSV()
@@ -439,6 +452,19 @@ public class LiveColor: LiveComboValue, CustomStringConvertible {
         b = LiveFloat({ getRGB().b })
         self.a = a
     }
+    
+    public convenience init(h: CGFloat, s: CGFloat = 1.0, v: CGFloat = 1.0, a: CGFloat = 1.0) {
+        self.init(h: LiveFloat(h), s: LiveFloat(s), v: LiveFloat(v), a: LiveFloat(a))
+    }
+    
+    public convenience init(h: Double, s: Double = 1.0, v: Double = 1.0, a: Double = 1.0) {
+        self.init(h: LiveFloat(h), s: LiveFloat(s), v: LiveFloat(v), a: LiveFloat(a))
+    }
+    
+    public convenience init(h: Float, s: Float = 1.0, v: Float = 1.0, a: Float = 1.0) {
+        self.init(h: LiveFloat(h), s: LiveFloat(s), v: LiveFloat(v), a: LiveFloat(a))
+    }
+    
     static func rgb(hsv: HSV) -> RGB {
         rgb(h: hsv.h, s: hsv.s, v: hsv.v)
     }
